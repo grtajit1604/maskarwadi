@@ -258,9 +258,9 @@ function updateActiveNav() {
     }
   });
   navAnchors.forEach(a => {
-    a.style.background = a.getAttribute('href') === '#' + currentId
-      ? 'rgba(42,111,151,0.12)'
-      : '';
+      a.style.background = a.getAttribute('href') === '#' + currentId
+        ? 'rgba(212,148,74,0.12)'
+        : '';
   });
 }
 window.addEventListener('scroll', updateActiveNav);
