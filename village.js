@@ -259,7 +259,7 @@ function updateActiveNav() {
   });
   navAnchors.forEach(a => {
     a.style.background = a.getAttribute('href') === '#' + currentId
-      ? 'rgba(64,145,108,0.12)'
+      ? 'rgba(42,111,151,0.12)'
       : '';
   });
 }
