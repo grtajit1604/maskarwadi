@@ -662,3 +662,38 @@ section { padding: 100px 0; position: relative; }
   .hero-buttons .btn { width: 100%; justify-content: center; }
   .hero h1 { font-size: 2rem; }
 }
+
+/* ============================================================
+   PAGE LOADER
+   ============================================================ */
+.page-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+.page-loader.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+.loader-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.loader-content svg {
+  max-width: 90vw;
+  height: auto;
+}
+
+@media (max-width: 480px) {
+  .loader-content svg {
+    max-width: 95vw;
+  }
+}

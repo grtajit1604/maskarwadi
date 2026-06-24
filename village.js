@@ -294,3 +294,12 @@ document.querySelector('.footer-bottom p').innerHTML =
   } catch(e) {}
   applyLanguage(lang);
 })();
+
+// ===== Page Loader =====
+window.addEventListener('load', () => {
+  const loader = document.getElementById('pageLoader');
+  if (loader) {
+    // Brief delay so the animation plays at least once
+    setTimeout(() => loader.classList.add('hidden'), 400);
+  }
+});
