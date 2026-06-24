@@ -4,7 +4,10 @@
      Dark Green      #1B4332 — Primary (titles, headings)
      Vibrant Green   #40916C — Secondary (borders, nav, accents)
      Turmeric Yellow #FFB703 — Accent (highlights, CTAs)
-     Light Gray      #F8F9FA — Background
+     Deep Amber      #C47A00 — Accent hover, decorative depth
+     Light Gray      #F8F9FA — Page background
+     Warm Cream      #F5F0E8 — Alternate section background
+     Warm Off-White  #FCFAF5 — Card & container background
    ============================================================ */
 
 /* ===== RESET & BASE ===== */
@@ -19,17 +22,18 @@
   --secondary-dim:   #347A5B;
   --secondary-pale:  rgba(64,145,108,0.10);
   --accent:          #FFB703;
-  --accent-dim:      #E0A002;
+  --accent-dim:      #C47A00;
   --accent-pale:     rgba(255,183,3,0.14);
   --bg:              #F8F9FA;
-  --bg-alt:          #EEF0F2;
+  --bg-alt:          #F5F0E8;
   --white:           #FFFFFF;
+  --card-bg:         #FCFAF5;
 
   /* ---- Text ---- */
   --text-dark:       #1B4332;
   --text:            #2D4A3E;
   --text-light:      #5A7A6A;
-  --text-muted:      #8AA89A;
+  --text-muted:      #7A8F85;
 
   /* ---- Gradients ---- */
   --grad-primary:    linear-gradient(135deg, #40916C, #1B4332);
@@ -372,7 +376,7 @@ section { padding: 100px 0; position: relative; }
 }
 .about-stat {
   text-align: center; padding: 20px;
-  background: var(--bg);
+  background: var(--card-bg);
   border-radius: var(--radius-sm);
   transition: var(--transition);
   border-left: 4px solid var(--secondary);
@@ -412,7 +416,7 @@ section { padding: 100px 0; position: relative; }
   gap: 28px; margin-top: 16px;
 }
 .feature-card {
-  background: var(--white); padding: 36px 28px;
+  background: var(--card-bg); padding: 36px 28px;
   border-radius: var(--radius);
   transition: var(--transition-slow);
   text-align: center;
@@ -459,7 +463,7 @@ section { padding: 100px 0; position: relative; }
 .location-detail {
   display: flex; align-items: center; gap: 16px;
   padding: 16px 20px;
-  background: var(--bg);
+  background: var(--card-bg);
   border-radius: var(--radius-sm);
   transition: var(--transition);
   border-left: 4px solid var(--secondary);
