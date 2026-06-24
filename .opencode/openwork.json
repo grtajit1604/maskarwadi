@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "workspace": {
+    "name": "MFound",
+    "createdAt": 1782273054134,
+    "preset": "starter"
+  },
+  "authorizedRoots": [
+    "D:\\MFound"
+  ],
+  "reload": null
+}

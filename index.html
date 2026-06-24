@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="मस्करवाडी — महाराष्ट्राच्या हृदयातील एक शांत गाव, संस्कृती, समुदाय आणि नैसर्गिक सौंदर्याने समृद्ध.">
+  <title>मस्करवाडी | शांतता आणि प्रगतीचे गाव</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="village.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <!-- Open Graph -->
+  <meta property="og:title" content="मस्करवाडी | शांतता आणि प्रगतीचे गाव">
+  <meta property="og:description" content="मस्करवाडी — महाराष्ट्राच्या हृदयातील एक शांत गाव, संस्कृती, समुदाय आणि नैसर्गिक सौंदर्याने समृद्ध.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://maskarwadi.com">
+  <meta property="og:locale" content="mr_IN">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="मस्करवाडी | शांतता आणि प्रगतीचे गाव">
+  <meta name="twitter:description" content="मस्करवाडी — महाराष्ट्राच्या हृदयातील एक शांत गाव, संस्कृती, समुदाय आणि नैसर्गिक सौंदर्याने समृद्ध.">
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Place",
+    "name": "मस्करवाडी",
+    "alternateName": "Maskarwadi",
+    "description": "A peaceful village in the Satara district of Maharashtra, India. Rooted in tradition, growing toward the future.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Maskarwadi",
+      "addressRegion": "Maharashtra",
+      "addressCountry": "IN",
+      "postalCode": "415110"
+    },
+    "url": "https://maskarwadi.com"
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Scroll Progress -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- ===== HEADER ===== -->
+  <header class="header" id="header">
+    <div class="container">
+      <a href="#" class="logo">
+        <svg class="logo-svg" viewBox="0 0 900 220" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="hdrGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#15803D"/>
+              <stop offset="100%" stop-color="#0F766E"/>
+            </linearGradient>
+          </defs>
+          <g transform="translate(70,45)">
+            <circle cx="55" cy="55" r="48" fill="none" stroke="url(#hdrGrad)" stroke-width="6"/>
+            <text x="55" y="72" text-anchor="middle" font-family="Cinzel,Georgia,serif" font-size="48" font-weight="700" fill="currentColor">M</text>
+          </g>
+          <text x="220" y="105" font-family="Cinzel,Georgia,serif" font-size="72" font-weight="700" letter-spacing="4" fill="currentColor">MASKARWADI</text>
+          <line x1="220" y1="125" x2="720" y2="125" stroke="#22C55E" stroke-width="2"/>
+          <circle cx="470" cy="125" r="6" fill="#22C55E"/>
+          <path d="M735 118 Q755 95 780 118 Q755 125 735 118Z" fill="#22C55E"/>
+          <path d="M785 118 Q805 95 830 118 Q805 125 785 118Z" fill="#16A34A"/>
+        </svg>
+      </a>
+      <div class="nav-group">
+        <nav>
+          <ul class="nav-links" id="navLinks">
+            <li><a href="#about" data-i18n="nav_about" onclick="closeNav()">गावाबद्दल</a></li>
+            <li><a href="#life" data-i18n="nav_life" onclick="closeNav()">गावातील जीवन</a></li>
+            <li><a href="#location" data-i18n="nav_location" onclick="closeNav()">स्थान</a></li>
+            <li><a href="#contact" data-i18n="nav_contact" onclick="closeNav()">संपर्क</a></li>
+          </ul>
+        </nav>
+        <div class="lang-toggle" role="radiogroup" aria-label="Language selection">
+          <button class="lang-btn active" data-lang="mr" onclick="setLanguage('mr')" aria-pressed="true">मराठी</button>
+          <button class="lang-btn" data-lang="en" onclick="setLanguage('en')" aria-pressed="false">EN</button>
+        </div>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="home">
+    <div class="hero-bg">
+      <img src="Images/hero-bg.jpg"
+           alt="Village landscape" loading="eager">
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-badge reveal visible"><i class="fas fa-leaf"></i> <span data-i18n="hero_badge">महाराष्ट्र, भारत</span></div>
+      <h1 class="reveal visible delay-1">
+        <span data-i18n="hero_welcome">मस्करवाडीत स्वागत आहे</span>
+      </h1>
+      <p class="reveal visible delay-2" data-i18n="hero_subtitle">
+        एक शांत गाव जिथे परंपरा आणि निसर्ग यांचा सुंदर मिलाफ झालेला आहे. उबदार समुदाय, हिरवळीची शेते आणि सांस्कृतिक वारशात रुजलेली प्रगतीची भावना.
+      </p>
+      <div class="hero-buttons reveal visible delay-3">
+        <a href="#about" class="btn btn-primary" data-i18n="hero_btn1">आमच्या गावाची ओळख</a>
+        <a href="https://foundation.maskarwadi.com/" class="btn btn-secondary" data-i18n="hero_btn2">मस्करवाडी फाउंडेशन</a>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <span data-i18n="hero_scroll">स्क्रोल करा</span>
+      <div class="mouse"></div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section class="about-section" id="about">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="section-tag"><i class="fas fa-home"></i> <span data-i18n="about_tag">गावाबद्दल</span></span>
+        <h2 class="section-title" data-i18n="about_title">महाराष्ट्राच्या ग्रामीण भागाचे हृदय</h2>
+        <p class="section-subtitle" data-i18n="about_subtitle">
+          सातारा जिल्ह्यात वसलेले, मस्करवाडी हे गाव महाराष्ट्राच्या ग्रामीण भागाचे शाश्वत सौंदर्य आणि चिरस्थायी भावना दर्शवते.
+        </p>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-image-wrap reveal-left">
+          <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+               alt="Village fields" loading="lazy">
+        </div>
+        <div class="about-text reveal-right">
+          <h3 data-i18n="about_heading">परंपरा, संस्कृती आणि एकोप्याचे गाव</h3>
+          <p>
+            <span class="highlight" data-i18n="about_highlight">मस्करवाडी</span><span data-i18n="about_p1"> हे केवळ एक गाव नाही, तर परंपरा, संस्कृती आणि एकोप्याने नटलेला जिवंत समुदाय आहे. अनेक पिढ्यांपासून येथील ग्रामस्थ निसर्गाशी सुसंवाद साधत, जमिनीशी घट्ट नाते जपत आपले जीवन घडवत आले आहेत. सुपीक शेती, हिरव्यागार शेतांनी वेढलेले परिसर आणि डोंगररांगांच्या सान्निध्यात वसलेले हे गाव आधुनिक जीवनाच्या धावपळीपासून दूर शांतता आणि समाधानाचा अनुभव देणारे आहे.</span>
+          </p>
+          <p data-i18n="about_p2">
+            "मस्करवाडी" हे नाव गावाच्या मराठी आणि मराठा संस्कृतीशी असलेल्या दृढ नात्याचे प्रतीक आहे. येथे सण-उत्सव, धार्मिक परंपरा, लोककला आणि सामाजिक मूल्ये आजही जपली जातात. गावातील मंदिरे, जत्रा, भजन-कीर्तन आणि सामुदायिक कार्यक्रम ग्रामस्थांना एकत्र आणतात आणि सामाजिक बंध अधिक दृढ करतात.
+          </p>
+          <p data-i18n="about_p3">
+            शेती हा मस्करवाडीच्या अर्थव्यवस्थेचा आणि जीवनशैलीचा केंद्रबिंदू आहे. बाजरी, ज्वारी, भात, भाजीपाला आणि इतर हंगामी पिकांची लागवड करून शेतकरी कुटुंबे आपल्या कष्टाने गावाची समृद्धी घडवतात. पारंपरिक शेतीपद्धतींसोबत आधुनिक तंत्रज्ञानाचाही स्वीकार करून येथील शेतकरी उत्पादनक्षमता वाढविण्याचा प्रयत्न करतात. शेतीबरोबरच पशुपालनही अनेक कुटुंबांच्या उपजीविकेचा महत्त्वाचा भाग आहे.
+          </p>
+          <p data-i18n="about_p4">
+            मस्करवाडीची खरी ताकद म्हणजे येथील एकता, सहकार्य आणि आपुलकी. गावातील लोक सुख-दुःखात एकमेकांच्या पाठीशी उभे राहतात. सामूहिक श्रमदान, सामाजिक उपक्रम, उत्सवांचे आयोजन आणि ग्रामविकासाची कामे सर्वांच्या सहभागातून पार पडतात. "एक गाव, एक कुटुंब" ही भावना येथे प्रत्येकाच्या वागणुकीत दिसून येते.
+          </p>
+          <p data-i18n="about_p5">
+            निसर्गसंपन्न वातावरण, कष्टाळू शेतकरी, समृद्ध सांस्कृतिक वारसा आणि अतूट सामाजिक एकोपा यांमुळे मस्करवाडी हे ग्रामीण महाराष्ट्राच्या खऱ्या आत्म्याचे दर्शन घडवणारे प्रेरणादायी गाव आहे. येथे परंपरा आणि प्रगती यांचा सुंदर संगम अनुभवायला मिळतो, जो पुढील पिढ्यांसाठी अभिमानाचा वारसा ठरत आहे.
+          </p>
+          <div class="about-stats">
+            <div class="about-stat">
+              <div class="num" data-i18n-num="about_num1">~९००</div>
+              <div class="label" data-i18n="about_stat1">लोकसंख्या</div>
+            </div>
+            <div class="about-stat">
+              <div class="num" data-i18n-num="about_num2">१५०+</div>
+              <div class="label" data-i18n="about_stat2">कुटुंबे</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== VILLAGE LIFE / FEATURES ===== -->
+  <section class="features-section" id="life">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="section-tag"><i class="fas fa-sun"></i> <span data-i18n="life_tag">गावातील जीवन</span></span>
+        <h2 class="section-title" data-i18n="life_title">मस्करवाडीतील जीवन</h2>
+        <p class="section-subtitle" data-i18n="life_subtitle">
+          शेतातील पहाटेच्या पहिल्या प्रकाशापासून ते चौपाटीवरील संध्याकाळच्या मेळाव्यापर्यंत — प्रत्येक दिवस एक कथा सांगतो.
+        </p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card reveal delay-1">
+          <div class="feature-icon">
+            <svg class="svg-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2 C10 6 8 10 12 14 C16 10 14 6 12 2Z"/>
+              <line x1="12" y1="14" x2="12" y2="20"/>
+              <line x1="9" y1="20" x2="15" y2="20"/>
+              <line x1="12" y1="17" x2="8" y2="14"/>
+              <line x1="12" y1="17" x2="16" y2="14"/>
+            </svg>
+          </div>
+          <h3 data-i18n="feat1_title">शेती</h3>
+          <p data-i18n="feat1_desc">बाजरी, ज्वारी, भात, भाजीपाला आणि इतर हंगामी पिकांची लागवड करून शेतकरी कुटुंबे आपल्या कष्टाने गावाची समृद्धी घडवतात.</p>
+        </div>
+        <div class="feature-card reveal delay-2">
+          <div class="feature-icon">
+            <svg class="svg-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 4 L12 20"/>
+              <path d="M12 6 C8 8 6 12 12 14 C18 12 16 8 12 6Z"/>
+              <line x1="12" y1="14" x2="12" y2="20"/>
+              <circle cx="12" cy="20.5" r="1.5"/>
+            </svg>
+          </div>
+          <h3 data-i18n="feat2_title">संस्कृती आणि परंपरा</h3>
+          <p data-i18n="feat2_desc">सण-उत्सव, धार्मिक परंपरा, लोककला आणि सामाजिक मूल्ये आजही जपली जातात. मंदिरे, जत्रा, भजन-कीर्तन ग्रामस्थांना एकत्र आणतात.</p>
+        </div>
+        <div class="feature-card reveal delay-3">
+          <div class="feature-icon">
+            <svg class="svg-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 4 L4 16 L20 16 Z"/>
+              <path d="M12 8 L7 15 L17 15 Z"/>
+              <path d="M12 11 L9 14 L15 14 Z"/>
+              <rect x="10" y="16" width="4" height="5" rx="0.5"/>
+            </svg>
+          </div>
+          <h3 data-i18n="feat3_title">नैसर्गिक सौंदर्य</h3>
+          <p data-i18n="feat3_desc">हिरवळीची शेते, पामची झाडे आणि मोकळे आकाश यांनी वेढलेले, हे गाव शांत लँडस्केप आणि स्वच्छ हवा देते.</p>
+        </div>
+        <div class="feature-card reveal delay-1">
+          <div class="feature-icon">
+            <svg class="svg-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="9" cy="8" r="2.5"/>
+              <circle cx="15" cy="8" r="2.5"/>
+              <path d="M4 18 C4 13 8 11 12 11 C16 11 20 13 20 18"/>
+              <line x1="9" y1="13" x2="9" y2="16"/>
+              <line x1="15" y1="13" x2="15" y2="16"/>
+            </svg>
+          </div>
+          <h3 data-i18n="feat4_title">सामुदायिक एकता</h3>
+          <p data-i18n="feat4_desc">गावातील लोक सुख-दुःखात एकमेकांच्या पाठीशी उभे राहतात. सामूहिक श्रमदान आणि उपक्रम सर्वांच्या सहभागातून पार पडतात.</p>
+        </div>
+        <div class="feature-card reveal delay-2">
+          <div class="feature-icon">
+            <svg class="svg-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <rect x="4" y="6" width="16" height="14" rx="1.5"/>
+              <line x1="8" y1="11" x2="16" y2="11"/>
+              <line x1="8" y1="14" x2="14" y2="14"/>
+              <line x1="8" y1="17" x2="12" y2="17"/>
+              <path d="M8 6 L8 3 L16 3 L16 6"/>
+            </svg>
+          </div>
+          <h3 data-i18n="feat5_title">शिक्षण</h3>
+          <p data-i18n="feat5_desc">गावात मस्करवाडी आणि आसपासच्या वस्त्यांच्या मुलांची सेवा करणारी स्थानिक शाळा आहे, जी पुढील पिढीचे पोषण करते.</p>
+        </div>
+        <div class="feature-card reveal delay-3">
+          <div class="feature-icon">
+            <svg class="svg-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M2 12 L12 3 L22 12"/>
+              <path d="M12 3 L12 9"/>
+              <line x1="8" y1="20" x2="16" y2="20"/>
+              <line x1="12" y1="20" x2="12" y2="14"/>
+              <line x1="9" y1="14" x2="15" y2="14"/>
+            </svg>
+          </div>
+          <h3 data-i18n="feat6_title">प्रगती</h3>
+          <p data-i18n="feat6_desc">नवीन रस्ते, चांगली पायाभूत सुविधा आणि समुदाय-प्रेरित उपक्रमांसह, मस्करवाडी आपला वारसा जपत विकास करत आहे.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== LOCATION ===== -->
+  <section class="location-section" id="location">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="section-tag"><i class="fas fa-map-pin"></i> <span data-i18n="loc_tag">स्थान</span></span>
+        <h2 class="section-title" data-i18n="loc_title">आम्हाला कुठे शोधाल</h2>
+        <p class="section-subtitle" data-i18n="loc_subtitle">
+          मस्करवाडी महाराष्ट्राच्या सातारा जिल्ह्यात स्थित आहे, जवळच्या शहरे आणि गावांशी रस्त्याने चांगले जोडलेले आहे.
+        </p>
+      </div>
+
+      <div class="location-grid">
+        <div class="location-info reveal-left">
+          <h3 data-i18n="loc_heading">मस्करवाडीला कसे पोहोचायचे</h3>
+          <p data-i18n="loc_p">
+            कराड शहराजवळ वसलेले, मस्करवाडी राज्य महामार्ग आणि ग्रामीण रस्त्यांद्वारे सहज प्रवेश करण्यायोग्य आहे. जवळचे रेल्वे स्थानक कराड येथे आहे आणि सर्वात जवळचे विमानतळ पुणे येथे आहे, सुमारे ३ तासांच्या अंतरावर.
+          </p>
+          <div class="location-details">
+            <div class="location-detail">
+              <div class="icon">
+                <svg class="svg-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 2 C8 2 5 5 5 9 C5 15 12 22 12 22 C12 22 19 15 19 9 C19 5 16 2 12 2Z"/>
+                  <circle cx="12" cy="9" r="3"/>
+                </svg>
+              </div>
+              <div class="info">
+                <h4 data-i18n="loc_addr_label">पत्ता</h4>
+                <p data-i18n="loc_addr_val">मस्करवाडी, कराड तालुका, सातारा जिल्हा, महाराष्ट्र ४१५११०</p>
+              </div>
+            </div>
+            <div class="location-detail">
+              <div class="icon">
+                <svg class="svg-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="2" y="7" width="20" height="11" rx="2"/>
+                  <line x1="6" y1="18" x2="4" y2="21"/>
+                  <line x1="18" y1="18" x2="20" y2="21"/>
+                  <circle cx="7" cy="13" r="1"/>
+                  <circle cx="12" cy="13" r="1"/>
+                  <circle cx="17" cy="13" r="1"/>
+                  <line x1="7" y1="7" x2="7" y2="4"/>
+                  <line x1="12" y1="7" x2="12" y2="4"/>
+                  <line x1="17" y1="7" x2="17" y2="4"/>
+                </svg>
+              </div>
+              <div class="info">
+                <h4 data-i18n="loc_rail_label">जवळचे रेल्वे स्थानक</h4>
+                <p data-i18n="loc_rail_val">कराड रेल्वे स्थानक (अंदाजे १५ किमी)</p>
+              </div>
+            </div>
+            <div class="location-detail">
+              <div class="icon">
+                <svg class="svg-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M2 16 L12 4 L22 16"/>
+                  <line x1="12" y1="4" x2="12" y2="20"/>
+                  <line x1="5" y1="20" x2="19" y2="20"/>
+                  <path d="M7 13 C7 13 10 10 12 10 C14 10 17 13 17 13"/>
+                </svg>
+              </div>
+              <div class="info">
+                <h4 data-i18n="loc_air_label">जवळचे विमानतळ</h4>
+                <p data-i18n="loc_air_val">पुणे आंतरराष्ट्रीय विमानतळ (अंदाजे १६० किमी)</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="location-map reveal-right">
+          <iframe
+            title="Maskarwadi location map"
+            src="https://www.openstreetmap.org/export/embed.html?bbox=74.1650%2C17.2000%2C74.2250%2C17.2500&amp;layer=mapnik&amp;marker=17.2250%2C74.1950"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section class="cta-section" id="contact">
+    <div class="container">
+      <div class="reveal-scale">
+        <h2 data-i18n="cta_title">मस्करवाडीच्या आकर्षणाचा अनुभव घ्या</h2>
+        <p data-i18n="cta_subtitle">
+          तुम्ही भेट देऊ इच्छिता, समुदायाशी संपर्क साधू इच्छिता किंवा गावातील जीवनाबद्दल अधिक जाणून घेऊ इच्छिता, आम्ही तुमचे मोकळ्या मनाने स्वागत करतो.
+        </p>
+        <div class="hero-buttons" style="justify-content: center;">
+          <a href="mailto:maskarwadifoundation@gmail.com" class="btn btn-secondary btn-lg">
+            <i class="fas fa-envelope"></i> <span data-i18n="cta_btn">संपर्क साधा</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <svg class="footer-logo-svg" viewBox="0 0 900 220" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="ftrGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#22C55E"/>
+                <stop offset="100%" stop-color="#14B8A6"/>
+              </linearGradient>
+            </defs>
+            <g transform="translate(70,45)">
+              <circle cx="55" cy="55" r="48" fill="none" stroke="url(#ftrGrad)" stroke-width="6"/>
+              <text x="55" y="72" text-anchor="middle" font-family="Cinzel,Georgia,serif" font-size="48" font-weight="700" fill="#fff">M</text>
+            </g>
+            <text x="220" y="105" font-family="Cinzel,Georgia,serif" font-size="72" font-weight="700" letter-spacing="4" fill="#fff">MASKARWADI</text>
+            <line x1="220" y1="125" x2="720" y2="125" stroke="#22C55E" stroke-width="2"/>
+            <circle cx="470" cy="125" r="6" fill="#22C55E"/>
+            <path d="M735 118 Q755 95 780 118 Q755 125 735 118Z" fill="#22C55E"/>
+            <path d="M785 118 Q805 95 830 118 Q805 125 785 118Z" fill="#16A34A"/>
+          </svg>
+          <p data-i18n="footer_desc">
+            महाराष्ट्राच्या सातारा जिल्ह्यातील एक शांत गाव. परंपरेत रुजलेले, भविष्याकडे वाढणारे.
+          </p>
+        </div>
+        <div>
+          <h4 data-i18n="footer_links">द्रुत लिंक्स</h4>
+          <ul>
+            <li><a href="#about" data-i18n="nav_about">गावाबद्दल</a></li>
+            <li><a href="#life" data-i18n="nav_life">गावातील जीवन</a></li>
+            <li><a href="#location" data-i18n="nav_location">स्थान</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 data-i18n="footer_connect">संपर्क</h4>
+          <ul>
+            <li><a href="mailto:maskarwadifoundation@gmail.com" data-i18n="footer_email">ईमेल करा</a></li>
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">Facebook</a></li>
+          </ul>
+          <div class="footer-social">
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-dev">
+        <h4 data-i18n="footer_dev_heading">वेबसाइट विकसित केली</h4>
+        <div class="footer-dev-grid">
+          <div class="footer-dev-card">
+            <img src="Images/ajay-mane.jpg" alt="Ajay Mane" class="footer-dev-img" loading="lazy">
+            <span class="footer-dev-name">Ajay Mane</span>
+          </div>
+          <div class="footer-dev-card">
+            <img src="Images/ajit-mane.jpg" alt="Ajit Mane" class="footer-dev-img" loading="lazy">
+            <span class="footer-dev-name">Ajit Mane</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 <span data-i18n="footer_copy">मस्करवाडी गाव. प्रेमाने तयार केले.</span></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="village.js"></script>
+
+</body>
+</html>
