@@ -259,7 +259,7 @@ function updateActiveNav() {
   });
   navAnchors.forEach(a => {
       a.style.background = a.getAttribute('href') === '#' + currentId
-        ? 'rgba(212,148,74,0.12)'
+        ? 'rgba(118,171,27,0.12)'
         : '';
   });
 }
@@ -296,10 +296,31 @@ document.querySelector('.footer-bottom p').innerHTML =
 })();
 
 // ===== Page Loader =====
-window.addEventListener('load', () => {
+(function initLoader() {
   const loader = document.getElementById('pageLoader');
-  if (loader) {
-    // Brief delay so the animation plays at least once
-    setTimeout(() => loader.classList.add('hidden'), 400);
+  if (!loader) return;
+
+  // Prevent body scroll behind the loader
+  document.body.style.overflow = 'hidden';
+
+  const startTime = performance.now();
+  const MIN_DISPLAY_MS = 2000;
+
+  function hideLoader() {
+    const elapsed = performance.now() - startTime;
+    const remaining = Math.max(0, MIN_DISPLAY_MS - elapsed);
+    setTimeout(() => {
+      loader.classList.add('hidden');
+      // Re-enable body scroll once loader has faded out
+      setTimeout(() => {
+        document.body.style.overflow = '';
+      }, 500);
+    }, remaining);
   }
-});
+
+  if (document.readyState === 'complete') {
+    hideLoader();
+  } else {
+    window.addEventListener('load', hideLoader);
+  }
+})();
