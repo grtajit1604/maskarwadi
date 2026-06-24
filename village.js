@@ -185,15 +185,20 @@ function closeNav() {
   navLinks.classList.remove('open');
 }
 
-// ===== Header scroll effect =====
+// ===== Header scroll effect + parallax hero =====
 const header = document.getElementById('header');
 const scrollProgress = document.getElementById('scrollProgress');
+const heroBg = document.querySelector('.hero-bg img');
 window.addEventListener('scroll', () => {
   const scrollY = window.scrollY;
   const docHeight = document.documentElement.scrollHeight - window.innerHeight;
   header.classList.toggle('scrolled', scrollY > 60);
   const progress = docHeight > 0 ? (scrollY / docHeight) * 100 : 0;
   scrollProgress.style.width = progress + '%';
+  // Parallax hero image
+  if (heroBg && scrollY < window.innerHeight) {
+    heroBg.style.transform = 'translateY(' + (scrollY * 0.2) + 'px) scale(1.05)';
+  }
 });
 
 // ===== Scroll Reveal =====
@@ -204,6 +209,62 @@ const revealObserver = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
 revealElements.forEach(el => revealObserver.observe(el));
+
+// ===== Animated stat counters =====
+let statsCounted = false;
+const statNumbers = document.querySelectorAll('.about-stat .num');
+function animateStats() {
+  if (statsCounted) return;
+  statsCounted = true;
+  statNumbers.forEach(el => {
+    const raw = el.getAttribute('data-i18n-num')
+      ? translations['en'][el.getAttribute('data-i18n-num')]
+      : el.textContent;
+    const match = raw ? raw.match(/(\d+)/) : null;
+    if (!match) return;
+    const target = parseInt(match[1], 10);
+    const prefix = raw.includes('~') ? '~' : '';
+    const suffix = raw.includes('+') ? '+' : '';
+    const duration = 1200;
+    const start = performance.now();
+    function step(now) {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const current = Math.round(eased * target);
+      el.textContent = prefix + current + suffix;
+      if (progress < 1) requestAnimationFrame(step);
+      else el.textContent = raw; // restore exact original on finish
+    }
+    requestAnimationFrame(step);
+  });
+}
+const statsObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) { animateStats(); statsObserver.disconnect(); }
+  });
+}, { threshold: 0.5 });
+if (statNumbers.length) statsObserver.observe(statNumbers[0].closest('.about-stats') || statNumbers[0]);
+
+// ===== Active nav section highlight =====
+const sections = document.querySelectorAll('section[id]');
+const navAnchors = document.querySelectorAll('.nav-links a[href^="#"]');
+function updateActiveNav() {
+  const scrollY = window.scrollY + 120;
+  let currentId = '';
+  sections.forEach(s => {
+    if (s.offsetTop <= scrollY && s.offsetTop + s.offsetHeight > scrollY) {
+      currentId = s.getAttribute('id');
+    }
+  });
+  navAnchors.forEach(a => {
+    a.style.background = a.getAttribute('href') === '#' + currentId
+      ? 'rgba(255,107,53,0.15)'
+      : '';
+  });
+}
+window.addEventListener('scroll', updateActiveNav);
+updateActiveNav();
 
 // ===== Smooth click for nav links =====
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
