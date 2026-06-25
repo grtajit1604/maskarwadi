@@ -7,7 +7,7 @@
   <title>Shivshakti Sport Maskarwadi Cricket Team</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Oswald:wght@500;600;700&family=League+Spartan:wght@900&family=Montserrat:wght@800&family=DM+Sans:wght@600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/village.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -45,107 +45,34 @@
       position: relative;
       z-index: 2;
       text-align: center;
-      padding: 60px 24px;
+      padding: 40px 24px 50px;
       color: #fff;
-    }
-    .cricket-hero-badge {
-      display: inline-flex;
+      display: flex;
+      flex-direction: column;
       align-items: center;
-      gap: 10px;
-      background: rgba(255,255,255,0.10);
-      backdrop-filter: blur(12px);
-      border: 1.5px solid rgba(255,255,255,0.15);
-      padding: 8px 24px;
-      border-radius: 50px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: rgba(255,255,255,0.90);
-      margin-bottom: 24px;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
     }
-    .cricket-hero-badge i {
-      color: #ffd700;
-      font-size: 1rem;
+    /* === Hero SVG Logo === */
+    .hero-svg-wrap {
+      width: 100%;
+      max-width: 860px;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 12px 48px rgba(0,0,0,0.20);
+      margin-bottom: 32px;
+      line-height: 0;
     }
-    .cricket-hero-content h1 {
-      font-size: clamp(2.2rem, 6vw, 4rem);
-      font-weight: 700;
-      margin-bottom: 8px;
-      font-family: 'Cinzel', Georgia, serif;
-      letter-spacing: 3px;
-      text-shadow: 0 2px 20px rgba(0,0,0,0.3);
-    }
-    .cricket-hero-content .team-sub {
-      font-size: clamp(1rem, 2.5vw, 1.5rem);
-      font-weight: 600;
-      color: #ffd700;
-      font-family: 'Oswald', sans-serif;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      margin-bottom: 16px;
-    }
-    .cricket-hero-content p {
-      font-size: 1.05rem;
-      color: rgba(255,255,255,0.75);
-      max-width: 600px;
-      margin: 0 auto 28px;
-      line-height: 1.7;
+    .hero-svg-wrap svg {
+      display: block;
+      width: 100%;
+      height: auto;
     }
 
-    /* ---- Cricket icon decoration ---- */
-    .cricket-ball {
-      display: inline-block;
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      background: radial-gradient(circle at 35% 35%, #cc0000, #880000);
-      box-shadow: 0 4px 15px rgba(0,0,0,0.3), inset 0 -2px 6px rgba(0,0,0,0.3);
-      position: relative;
-      vertical-align: middle;
-      margin: 0 8px;
+    /* ---- Hero SVG Responsive ---- */
+    @media (max-width: 768px) {
+      .hero-svg-wrap { max-width: 95%; border-radius: 14px; }
     }
-    .cricket-ball::after {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 16px;
-      height: 16px;
-      border: 2px solid rgba(255,255,255,0.25);
-      border-radius: 50%;
-    }
-    .cricket-ball::before {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 2px;
-      height: 24px;
-      background: rgba(255,255,255,0.2);
-    }
-    .cricket-bat {
-      display: inline-block;
-      width: 8px;
-      height: 44px;
-      background: linear-gradient(180deg, #d4a054, #b8863a);
-      border-radius: 2px 2px 1px 3px;
-      position: relative;
-      vertical-align: middle;
-      margin: 0 4px;
-      transform: rotate(-15deg);
-    }
-    .cricket-bat::after {
-      content: '';
-      position: absolute;
-      top: -6px;
-      left: -4px;
-      width: 16px;
-      height: 18px;
-      background: linear-gradient(180deg, #e8c07a, #c9953e);
-      border-radius: 3px 3px 1px 1px;
+    @media (max-width: 480px) {
+      .hero-svg-wrap { max-width: 98%; border-radius: 10px; }
     }
 
     /* ---- Sections ---- */
@@ -355,6 +282,7 @@
     }
     @media (max-width: 768px) {
       .cricket-hero { min-height: 50vh; }
+      .cricket-hero-content { padding: 30px 16px 40px; }
       .cricket-section { padding: 48px 0; }
       .players-grid { grid-template-columns: repeat(3, 1fr); gap: 14px; }
       .team-stats { grid-template-columns: repeat(3, 1fr); gap: 12px; }
@@ -412,17 +340,56 @@
   <section class="cricket-hero">
     <div class="hero-overlay"></div>
     <div class="cricket-hero-content">
-      <div class="cricket-hero-badge">
-        <i class="fas fa-crown"></i> Maskarwadi Cricket
+
+      <div class="hero-svg-wrap">
+        <svg viewBox="0 0 1200 380" xmlns="http://www.w3.org/2000/svg">
+          <rect width="1200" height="380" fill="#ffffff"/>
+
+          <!-- Side accent -->
+          <rect x="260" y="90" width="6" height="170" fill="#111111"/>
+          <rect x="272" y="90" width="6" height="120" fill="#FF3B30"/>
+
+          <!-- SHIVSHAKTI -->
+          <text x="300"
+                y="170"
+                font-family="'League Spartan', 'Arial Black', sans-serif"
+                font-size="96"
+                font-weight="900"
+                letter-spacing="4"
+                fill="#111111">
+            SHIVSHAKTI
+          </text>
+
+          <!-- SPORT -->
+          <text x="305"
+                y="235"
+                font-family="'Montserrat', Arial, sans-serif"
+                font-size="38"
+                font-weight="800"
+                letter-spacing="20"
+                fill="#FF3B30">
+            SPORT
+          </text>
+
+          <!-- underline -->
+          <line x1="305" y1="255" x2="880" y2="255"
+                stroke="#111111"
+                stroke-width="2"/>
+
+          <!-- MASKARWADI -->
+          <text x="880"
+                y="300"
+                text-anchor="end"
+                font-family="'DM Sans', Arial, sans-serif"
+                font-size="24"
+                font-weight="600"
+                letter-spacing="10"
+                fill="#666666">
+            MASKARWADI
+          </text>
+        </svg>
       </div>
-      <h1>Shivshakti Sport</h1>
-      <div class="team-sub">
-        <span class="cricket-bat"></span> Maskarwadi <span class="cricket-ball"></span>
-      </div>
-      <p>
-        Inspired by the strength of Shivshakti — the pride of Maskarwadi's cricket team.
-        A symbol of sportsmanship, discipline, unity and the hunger for victory.
-      </p>
+
       <a href="#team" class="btn btn-primary">
         <i class="fas fa-users"></i> View Team
       </a>
