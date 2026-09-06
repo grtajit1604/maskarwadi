@@ -158,8 +158,20 @@ button { font: inherit; color: inherit; }
 .leaf-rule .leaf { width: 16px; height: 16px; opacity: 0.9; }
 
 /* ============================================================
-   3. TYPOGRAPHY
+   3. TYPOGRAPHY  (base element defaults; components set their own)
    ============================================================ */
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  line-height: 1.18;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  text-wrap: balance;
+}
+h4 { font-family: var(--font-body); font-weight: 700; letter-spacing: 0; }
+p { text-wrap: pretty; }
+strong, b { font-weight: 600; }
+
 .scroll-progress {
   position: fixed; inset: 0 auto auto 0; height: 3px; width: 0;
   background: linear-gradient(90deg, var(--green), var(--green-deep));
@@ -336,6 +348,13 @@ button { font: inherit; color: inherit; }
     linear-gradient(180deg, rgba(8,26,14,0.5) 0%, rgba(8,26,14,0.22) 42%, rgba(8,26,14,0.68) 100%),
     radial-gradient(130% 90% at 50% 42%, transparent 42%, rgba(6,20,10,0.34) 100%);
 }
+/* fine film grain for depth */
+.hero-overlay::before {
+  content: ''; position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.05;
+  mix-blend-mode: overlay;
+}
 
 .hero-content {
   position: relative; z-index: 3;
@@ -467,12 +486,16 @@ section { position: relative; padding-block: var(--section); }
   border-radius: var(--r-lg);
   overflow: hidden;
   box-shadow: var(--shadow-md);
+  background: #EDF0DE;
 }
-.about-image-wrap img {
-  width: 100%; aspect-ratio: 4 / 5; object-fit: cover;
+.about-image-wrap img,
+.about-image-wrap .about-illustration {
+  width: 100%; height: auto; display: block;
+  aspect-ratio: 4 / 5; object-fit: cover;
   transition: transform var(--t-slow);
 }
-.about-media:hover .about-image-wrap img { transform: scale(1.04); }
+.about-media:hover .about-image-wrap img,
+.about-media:hover .about-image-wrap .about-illustration { transform: scale(1.03); }
 .about-image-tag {
   position: absolute; left: 16px; bottom: 16px; z-index: 2;
   padding: 8px 16px;
@@ -533,7 +556,6 @@ section { position: relative; padding-block: var(--section); }
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
-  padding-bottom: 26px;   /* room for raised middle column */
 }
 .feature-card {
   position: relative;
@@ -660,11 +682,16 @@ section { position: relative; padding-block: var(--section); }
   content: ''; position: absolute; inset: 0;
   background: radial-gradient(80% 120% at 50% -10%, rgba(94,140,30,0.28), transparent 60%);
 }
+.cta-section::after {
+  content: ''; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.04;
+}
 .cta-leaf {
   position: absolute; z-index: 0;
-  right: -60px; bottom: -70px;
-  width: min(46vw, 420px); height: auto;
-  color: rgba(255,255,255,0.05);
+  right: -70px; bottom: -80px;
+  width: min(48vw, 440px); height: auto;
+  color: rgba(255,255,255,0.06);
   fill: none; stroke: currentColor; stroke-width: 1.2;
 }
 .cta-section .container { position: relative; z-index: 1; }
@@ -775,6 +802,12 @@ section { position: relative; padding-block: var(--section); }
 }
 .page-loader.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
 .loader-content svg { max-width: min(88vw, 400px); height: auto; }
+
+/* ---- Desktop: stagger the middle feature column ---- */
+@media (min-width: 993px) {
+  .features-grid { align-items: start; }
+  .features-grid > .feature-card:nth-child(3n-1) { margin-top: 32px; }
+}
 
 /* ---- Tablet ---- */
 @media (max-width: 992px) {

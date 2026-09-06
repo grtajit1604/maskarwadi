@@ -174,8 +174,67 @@
       <div class="about-grid">
         <div class="about-media reveal-left">
           <div class="about-image-wrap">
-            <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                 alt="Green farm fields under an open sky near Maskarwadi" width="800" height="1000" loading="lazy">
+            <svg class="about-illustration" viewBox="0 0 800 1000" xmlns="http://www.w3.org/2000/svg"
+                 role="img" aria-label="Illustration of Maskarwadi — fields, hills and a lone tree at dusk">
+              <defs>
+                <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stop-color="#F5F3E9"/>
+                  <stop offset="0.55" stop-color="#EDF0DE"/>
+                  <stop offset="1" stop-color="#E0EACF"/>
+                </linearGradient>
+                <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+                  <stop offset="0" stop-color="#F4E7BE"/>
+                  <stop offset="1" stop-color="#F4E7BE" stop-opacity="0"/>
+                </radialGradient>
+              </defs>
+
+              <rect width="800" height="1000" fill="url(#sky)"/>
+              <circle cx="545" cy="330" r="210" fill="url(#glow)"/>
+              <circle cx="545" cy="330" r="66" fill="#EEDCA6"/>
+
+              <!-- birds -->
+              <path d="M150 210 q16 -14 32 0 q16 -14 32 0" fill="none" stroke="#4B6B33" stroke-width="4" stroke-linecap="round"/>
+              <path d="M232 168 q12 -10 24 0 q12 -10 24 0" fill="none" stroke="#4B6B33" stroke-width="3.5" stroke-linecap="round"/>
+
+              <!-- far hills -->
+              <path d="M0 470 C170 400 300 452 430 452 C560 452 690 408 800 448 L800 640 L0 640 Z" fill="#CBDCB2"/>
+              <!-- temple spire + house on the ridge -->
+              <path d="M486 452 l14 -46 l14 46 Z" fill="#9DB682"/>
+              <rect x="492" y="452" width="16" height="20" fill="#9DB682"/>
+              <path d="M96 470 l30 -26 l30 26 Z" fill="#B7CB9C"/>
+              <rect x="104" y="470" width="44" height="30" fill="#C6D6AE"/>
+
+              <!-- mid hills -->
+              <path d="M0 560 C160 500 320 560 480 548 C620 538 720 566 800 552 L800 760 L0 760 Z" fill="#A7C886"/>
+
+              <!-- terraced fields -->
+              <path d="M0 620 C220 576 520 596 800 606 L800 720 C520 704 220 690 0 728 Z" fill="#8CB566"/>
+              <path d="M0 712 C240 672 540 690 800 704 L800 828 C520 812 240 800 0 836 Z" fill="#6E9F4A"/>
+              <path d="M0 812 C260 780 560 792 800 806 L800 1000 L0 1000 Z" fill="#4E7A33"/>
+
+              <!-- converging field rows for depth -->
+              <g stroke="#3E6329" stroke-width="2" opacity="0.35" fill="none">
+                <path d="M400 872 L120 1000"/>
+                <path d="M400 872 L300 1000"/>
+                <path d="M400 872 L480 1000"/>
+                <path d="M400 872 L680 1000"/>
+              </g>
+
+              <!-- lone tree -->
+              <path d="M232 872 C228 812 236 764 246 720" stroke="#5C4327" stroke-width="16" stroke-linecap="round" fill="none"/>
+              <path d="M240 792 C220 780 206 762 202 744 M244 812 C266 804 286 792 296 774" stroke="#5C4327" stroke-width="9" stroke-linecap="round" fill="none"/>
+              <ellipse cx="244" cy="700" rx="120" ry="96" fill="#3F6B2A"/>
+              <ellipse cx="196" cy="726" rx="70" ry="58" fill="#4C7C33"/>
+              <ellipse cx="300" cy="720" rx="64" ry="54" fill="#4C7C33"/>
+
+              <!-- foreground grasses -->
+              <g stroke="#2F5220" stroke-width="4" stroke-linecap="round" opacity="0.8">
+                <path d="M60 1000 C58 950 66 930 74 908"/>
+                <path d="M92 1000 C96 956 88 934 82 914"/>
+                <path d="M690 1000 C686 954 694 930 704 908"/>
+                <path d="M726 1000 C730 958 722 936 716 916"/>
+              </g>
+            </svg>
           </div>
           <span class="about-image-tag">
             <svg class="leaf" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4C11 5 5 11 4 20c9-1 15-7 16-16Z"/></svg>
