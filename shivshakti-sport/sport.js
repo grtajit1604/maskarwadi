@@ -64,6 +64,22 @@ if (prefersReducedMotion || !('IntersectionObserver' in window)) {
   revealEls.forEach(el => obs.observe(el));
 }
 
+// Hero stat count-up
+const counters = document.querySelectorAll('.sp-hero-stats b[data-count]');
+counters.forEach(el => {
+  const target = parseInt(el.getAttribute('data-count'), 10);
+  if (!Number.isFinite(target) || prefersReducedMotion) { el.textContent = String(target); return; }
+  const start = performance.now();
+  const dur = 1000;
+  function step(now) {
+    const p = Math.min((now - start) / dur, 1);
+    el.textContent = String(Math.round((1 - Math.pow(1 - p, 3)) * target));
+    if (p < 1) requestAnimationFrame(step);
+    else el.textContent = String(target);
+  }
+  requestAnimationFrame(step);
+});
+
 // Footer year
 const yearEl = document.getElementById('footerYear');
 if (yearEl) yearEl.textContent = new Date().getFullYear();
