@@ -654,6 +654,9 @@ section { position: relative; padding-block: var(--section); }
 
 .location-map {
   position: relative;
+  width: 100%;
+  min-width: 0;            /* let the grid track cap the width */
+  align-self: stretch;
   border-radius: var(--r-md);
   overflow: hidden;
   min-height: 300px;
@@ -822,7 +825,7 @@ section { position: relative; padding-block: var(--section); }
   .about-image-wrap img { aspect-ratio: 16 / 12; }
   .features-grid { grid-template-columns: repeat(2, 1fr); padding-bottom: 0; }
   .location-panel { grid-template-columns: 1fr; }
-  .location-map { min-height: 280px; aspect-ratio: 16 / 11; }
+  .location-map { min-height: 300px; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
   .footer-brand { grid-column: 1 / -1; }
 }
