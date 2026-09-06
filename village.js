@@ -1,13 +1,14 @@
 // ===== TRANSLATIONS =====
 const translations = {
   mr: {
+    skip_link: 'मुख्य मजकुराकडे जा',
     nav_about: 'गावाबद्दल',
     nav_life: 'गावातील जीवन',
     nav_location: 'स्थान',
     nav_contact: 'संपर्क',
     nav_sport: 'शिवशक्ती स्पोर्ट मस्करवाडी',
     hero_badge: 'महाराष्ट्र, भारत',
-        hero_welcome: 'मस्करवाडीत स्वागत आहे',
+    hero_welcome: 'मस्करवाडीत स्वागत आहे',
     hero_subtitle: 'एक शांत गाव जिथे परंपरा आणि निसर्ग यांचा सुंदर मिलाफ झालेला आहे. उबदार समुदाय, हिरवळीची शेते आणि सांस्कृतिक वारशात रुजलेली प्रगतीची भावना.',
     hero_btn1: 'आमच्या गावाची ओळख',
     hero_btn2: 'मस्करवाडी फाउंडेशन',
@@ -59,17 +60,18 @@ const translations = {
     footer_links: 'द्रुत लिंक्स',
     footer_connect: 'संपर्क',
     footer_email: 'ईमेल करा',
-        footer_copy: 'मस्करवाडी गाव. प्रेमाने तयार केले.',
-        footer_dev_heading: 'वेबसाइट विकसित केली'
+    footer_copy: 'मस्करवाडी गाव. प्रेमाने तयार केले.',
+    footer_dev_heading: 'वेबसाइट विकसित केली'
   },
   en: {
+    skip_link: 'Skip to main content',
     nav_about: 'About',
     nav_life: 'Village Life',
     nav_location: 'Location',
     nav_contact: 'Contact',
     nav_sport: 'Shivshakti Sport Maskarwadi',
     hero_badge: 'Maharashtra, India',
-        hero_welcome: 'Welcome to Maskarwadi',
+    hero_welcome: 'Welcome to Maskarwadi',
     hero_subtitle: 'A peaceful village where tradition meets nature. Home to warm-hearted communities, lush green fields, and a spirit of progress rooted in cultural heritage.',
     hero_btn1: 'Discover Our Village',
     hero_btn2: 'Maskarwadi Foundation',
@@ -121,11 +123,12 @@ const translations = {
     footer_links: 'Quick Links',
     footer_connect: 'Connect',
     footer_email: 'Email Us',
-        footer_copy: 'Maskarwadi Village. Crafted with care.',
-        footer_dev_heading: 'Website Developed By'
+    footer_copy: 'Maskarwadi Village. Crafted with care.',
+    footer_dev_heading: 'Website Developed By'
   }
 };
 
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 let currentLang = 'mr';
 
 function applyLanguage(lang) {
@@ -134,18 +137,14 @@ function applyLanguage(lang) {
 
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
-    if (t[key]) {
-      if (key === 'about_p1') {
-        el.innerHTML = t[key];
-      } else {
-        el.textContent = t[key];
-      }
-    }
+    if (t[key] == null) return;
+    if (key === 'about_p1') el.innerHTML = t[key];
+    else el.textContent = t[key];
   });
 
   document.querySelectorAll('[data-i18n-num]').forEach(el => {
     const key = el.getAttribute('data-i18n-num');
-    if (t[key]) el.textContent = t[key];
+    if (t[key] != null) el.textContent = t[key];
   });
 
   document.documentElement.lang = lang;
@@ -164,10 +163,10 @@ function applyLanguage(lang) {
   document.querySelectorAll('.lang-btn').forEach(btn => {
     const isActive = btn.getAttribute('data-lang') === lang;
     btn.classList.toggle('active', isActive);
-    btn.setAttribute('aria-pressed', isActive);
+    btn.setAttribute('aria-pressed', String(isActive));
   });
 
-  try { localStorage.setItem('maskarwadi_lang', lang); } catch(e) {}
+  try { localStorage.setItem('maskarwadi_lang', lang); } catch (e) {}
 }
 
 function setLanguage(lang) {
@@ -175,117 +174,153 @@ function setLanguage(lang) {
   applyLanguage(lang);
 }
 
-// ===== Nav Toggle =====
+// ===== Mobile navigation =====
 const navToggle = document.getElementById('navToggle');
 const navLinks = document.getElementById('navLinks');
-navToggle.addEventListener('click', () => {
-  navToggle.classList.toggle('open');
-  navLinks.classList.toggle('open');
-});
-function closeNav() {
-  navToggle.classList.remove('open');
-  navLinks.classList.remove('open');
-}
 
-// ===== Header scroll effect + parallax hero =====
-const header = document.getElementById('header');
-const scrollProgress = document.getElementById('scrollProgress');
-const heroBg = document.querySelector('.hero-bg img');
-window.addEventListener('scroll', () => {
-  const scrollY = window.scrollY;
-  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-  header.classList.toggle('scrolled', scrollY > 60);
-  const progress = docHeight > 0 ? (scrollY / docHeight) * 100 : 0;
-  scrollProgress.style.width = progress + '%';
-  // Parallax hero image
-  if (heroBg && scrollY < window.innerHeight) {
-    heroBg.style.transform = 'translateY(' + (scrollY * 0.2) + 'px) scale(1.05)';
+function openNav() {
+  document.body.classList.add('nav-open');
+  navToggle.setAttribute('aria-expanded', 'true');
+}
+function closeNav() {
+  document.body.classList.remove('nav-open');
+  navToggle.setAttribute('aria-expanded', 'false');
+}
+if (navToggle) {
+  navToggle.addEventListener('click', () => {
+    document.body.classList.contains('nav-open') ? closeNav() : openNav();
+  });
+}
+if (navLinks) {
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', closeNav));
+}
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && document.body.classList.contains('nav-open')) {
+    closeNav();
+    navToggle.focus();
   }
 });
+window.addEventListener('resize', () => {
+  if (window.innerWidth > 768) closeNav();
+});
 
-// ===== Scroll Reveal =====
+// ===== Header scroll effect + scroll progress + parallax =====
+const header = document.getElementById('header');
+const scrollProgress = document.getElementById('scrollProgress');
+const heroMedia = document.querySelector('.hero-bg video, .hero-bg img');
+let ticking = false;
+
+function onScroll() {
+  const scrollY = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+
+  if (header) header.classList.toggle('scrolled', scrollY > 60);
+  if (scrollProgress) {
+    scrollProgress.style.width = (docHeight > 0 ? (scrollY / docHeight) * 100 : 0) + '%';
+  }
+  if (heroMedia && !prefersReducedMotion && scrollY < window.innerHeight) {
+    heroMedia.style.transform = 'translate3d(0,' + (scrollY * 0.12) + 'px,0) scale(1.06)';
+  }
+  updateActiveNav();
+  ticking = false;
+}
+window.addEventListener('scroll', () => {
+  if (!ticking) { requestAnimationFrame(onScroll); ticking = true; }
+}, { passive: true });
+
+// ===== Scroll reveal =====
 const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) entry.target.classList.add('visible');
-  });
-}, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
-revealElements.forEach(el => revealObserver.observe(el));
+if (prefersReducedMotion || !('IntersectionObserver' in window)) {
+  revealElements.forEach(el => el.classList.add('visible'));
+} else {
+  const revealObserver = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+  revealElements.forEach(el => revealObserver.observe(el));
+}
 
 // ===== Animated stat counters =====
-let statsCounted = false;
 const statNumbers = document.querySelectorAll('.about-stat .num');
+let statsCounted = false;
 function animateStats() {
   if (statsCounted) return;
   statsCounted = true;
   statNumbers.forEach(el => {
-    const raw = el.getAttribute('data-i18n-num')
-      ? translations['en'][el.getAttribute('data-i18n-num')]
-      : el.textContent;
-    const match = raw ? raw.match(/(\d+)/) : null;
-    if (!match) return;
-    const target = parseInt(match[1], 10);
+    const key = el.getAttribute('data-i18n-num');
+    const raw = (key && translations[currentLang][key]) || el.textContent;
+    const match = raw ? raw.match(/([\d०-९]+)/) : null;
+    if (!match || prefersReducedMotion) { el.textContent = raw; return; }
+    const target = parseInt(match[1].replace(/[०-९]/g, d => d.charCodeAt(0) - 0x0966), 10);
     const prefix = raw.includes('~') ? '~' : '';
     const suffix = raw.includes('+') ? '+' : '';
     const duration = 1200;
     const start = performance.now();
     function step(now) {
-      const elapsed = now - start;
-      const progress = Math.min(elapsed / duration, 1);
+      const progress = Math.min((now - start) / duration, 1);
       const eased = 1 - Math.pow(1 - progress, 3);
-      const current = Math.round(eased * target);
-      el.textContent = prefix + current + suffix;
+      el.textContent = prefix + Math.round(eased * target) + suffix;
       if (progress < 1) requestAnimationFrame(step);
-      else el.textContent = raw; // restore exact original on finish
+      else el.textContent = raw;
     }
     requestAnimationFrame(step);
   });
 }
-const statsObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) { animateStats(); statsObserver.disconnect(); }
-  });
-}, { threshold: 0.5 });
-if (statNumbers.length) statsObserver.observe(statNumbers[0].closest('.about-stats') || statNumbers[0]);
+if (statNumbers.length && 'IntersectionObserver' in window) {
+  const statsObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) { animateStats(); statsObserver.disconnect(); }
+    });
+  }, { threshold: 0.5 });
+  statsObserver.observe(statNumbers[0].closest('.about-stats') || statNumbers[0]);
+} else {
+  animateStats();
+}
 
 // ===== Active nav section highlight =====
-const sections = document.querySelectorAll('section[id]');
+const sections = document.querySelectorAll('main section[id]');
 const navAnchors = document.querySelectorAll('.nav-links a[href^="#"]');
 function updateActiveNav() {
-  const scrollY = window.scrollY + 120;
+  const pos = window.scrollY + 140;
   let currentId = '';
   sections.forEach(s => {
-    if (s.offsetTop <= scrollY && s.offsetTop + s.offsetHeight > scrollY) {
-      currentId = s.getAttribute('id');
-    }
+    if (s.offsetTop <= pos && s.offsetTop + s.offsetHeight > pos) currentId = s.id;
   });
   navAnchors.forEach(a => {
-      a.style.background = a.getAttribute('href') === '#' + currentId
-        ? 'rgba(118,171,27,0.12)'
-        : '';
+    if (currentId && a.getAttribute('href') === '#' + currentId) a.setAttribute('aria-current', 'true');
+    else a.removeAttribute('aria-current');
   });
 }
-window.addEventListener('scroll', updateActiveNav);
 updateActiveNav();
 
-// ===== Smooth click for nav links =====
+// ===== Smooth scroll for in-page links =====
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function(e) {
+  anchor.addEventListener('click', function (e) {
     const href = this.getAttribute('href');
-    if (href === '#') return;
-    e.preventDefault();
-    const target = document.querySelector(href);
-    if (target) {
-      const offset = header.offsetHeight + 10;
-      const targetPos = target.getBoundingClientRect().top + window.scrollY - offset;
-      window.scrollTo({ top: targetPos, behavior: 'smooth' });
+    if (href === '#' || href === '#main') {
+      if (href === '#main') {
+        e.preventDefault();
+        const m = document.getElementById('main');
+        if (m) { m.setAttribute('tabindex', '-1'); m.focus(); window.scrollTo({ top: 0 }); }
+      }
+      return;
     }
+    const target = document.querySelector(href);
+    if (!target) return;
+    e.preventDefault();
+    const offset = (header ? header.offsetHeight : 0) + 12;
+    const top = target.getBoundingClientRect().top + window.scrollY - offset;
+    window.scrollTo({ top, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
   });
 });
 
-// ===== Auto-update copyright year =====
-document.querySelector('.footer-bottom p').innerHTML =
-  '&copy; ' + new Date().getFullYear() + ' <span data-i18n="footer_copy">मस्करवाडी गाव. प्रेमाने तयार केले.</span>';
+// ===== Footer year =====
+const yearEl = document.getElementById('footerYear');
+if (yearEl) yearEl.textContent = new Date().getFullYear();
 
 // ===== Init language =====
 (function initLang() {
@@ -293,36 +328,37 @@ document.querySelector('.footer-bottom p').innerHTML =
   try {
     const saved = localStorage.getItem('maskarwadi_lang');
     if (saved === 'en' || saved === 'mr') lang = saved;
-  } catch(e) {}
+  } catch (e) {}
   applyLanguage(lang);
 })();
 
-// ===== Page Loader =====
+// ===== Page loader =====
 (function initLoader() {
   const loader = document.getElementById('pageLoader');
   if (!loader) return;
 
-  // Prevent body scroll behind the loader
   document.body.style.overflow = 'hidden';
-
-  const startTime = performance.now();
-  const MIN_DISPLAY_MS = 2000;
+  const start = performance.now();
+  const MIN_MS = prefersReducedMotion ? 0 : 600;
+  let done = false;
 
   function hideLoader() {
-    const elapsed = performance.now() - startTime;
-    const remaining = Math.max(0, MIN_DISPLAY_MS - elapsed);
+    if (done) return;
+    done = true;
+    const wait = Math.max(0, MIN_MS - (performance.now() - start));
     setTimeout(() => {
       loader.classList.add('hidden');
-      // Re-enable body scroll once loader has faded out
-      setTimeout(() => {
-        document.body.style.overflow = '';
-      }, 500);
-    }, remaining);
+      document.body.style.overflow = '';
+      setTimeout(() => loader.remove(), 600);
+    }, wait);
   }
 
-  if (document.readyState === 'complete') {
+  if (document.readyState === 'complete' || document.readyState === 'interactive') {
     hideLoader();
   } else {
-    window.addEventListener('load', hideLoader);
+    document.addEventListener('DOMContentLoaded', hideLoader);
   }
+  window.addEventListener('load', hideLoader);
+  // Failsafe: never trap the page
+  setTimeout(hideLoader, 4000);
 })();

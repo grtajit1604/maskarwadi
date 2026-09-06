@@ -1,0 +1,175 @@
+/* ============================================================
+   SHIVSHAKTI SPORT MASKARWADI — page styles
+   Extends village.css design system.
+   ============================================================ */
+
+.cricket-hero {
+  position: relative;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--bg);
+  overflow: hidden;
+  padding: clamp(96px, 16vw, 140px) var(--gutter) clamp(48px, 9vw, 72px);
+}
+.cricket-hero-content {
+  text-align: center;
+  display: flex; flex-direction: column; align-items: center;
+  width: 100%;
+}
+.hero-svg-wrap {
+  width: 100%; max-width: 900px; margin: 0 auto; line-height: 0;
+}
+.hero-svg-wrap svg { display: block; width: 100%; height: auto; }
+.hero-btn-wrap { margin-top: clamp(28px, 5vw, 44px); }
+
+/* ---- Sections ---- */
+.cricket-section { padding: var(--section-pad) 0; position: relative; }
+.cricket-section--white { background: var(--bg); }
+.cricket-section--alt { background: var(--bg-alt); }
+.cricket-section--dark {
+  background: var(--bg-deep);
+  color: #fff;
+  overflow: hidden;
+}
+.cricket-section--dark::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(90% 140% at 50% 0%, rgba(110,159,23,0.26), transparent 60%);
+}
+.cricket-container {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+  position: relative; z-index: 1;
+}
+.cricket-container--narrow { max-width: 860px; }
+
+.cricket-section-tag {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 7px 16px; border-radius: var(--radius-full);
+  font-size: 0.72rem; font-weight: 700; letter-spacing: 1.2px;
+  margin-bottom: 18px; text-transform: uppercase;
+  background: var(--green-pale); color: var(--forest);
+}
+.cricket-section-tag--light { background: rgba(255,255,255,0.12); color: #DDE9B8; }
+.cricket-section-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.9rem, 3.6vw, 2.6rem);
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 14px; line-height: 1.18;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+.cricket-section-title--light { color: #fff; }
+.cricket-section-sub {
+  font-size: 1.02rem; color: var(--text-light);
+  max-width: 600px; line-height: 1.7; margin-bottom: 44px;
+}
+.cricket-section-sub--light { color: rgba(255,255,255,0.68); }
+.cricket-text-center { text-align: center; }
+.cricket-text-center .cricket-section-sub { margin-left: auto; margin-right: auto; }
+
+/* ---- Team title ---- */
+.team-title-wrap {
+  text-align: center;
+  padding: clamp(32px, 6vw, 48px) 24px;
+  border-radius: var(--radius);
+  background: var(--green-pale);
+  border: 1px solid var(--border-light);
+}
+.team-title-wrap .team-icon { font-size: 2.6rem; margin-bottom: 14px; }
+.team-title-wrap h2 {
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 500;
+  color: var(--forest-dim);
+  margin-bottom: 8px;
+  font-family: var(--font-display);
+  line-height: 1.25;
+}
+.team-title-wrap p { font-size: 0.98rem; color: var(--text-light); margin: 0; }
+
+/* ---- Player cards ---- */
+.players-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 20px;
+}
+.player-card {
+  background: var(--card-bg);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-light);
+  overflow: hidden;
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+  text-align: center;
+}
+.player-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+  border-color: var(--green);
+}
+.player-card .img-wrap { overflow: hidden; }
+.player-card-img {
+  width: 100%; aspect-ratio: 1 / 1; object-fit: cover;
+  display: block; background: var(--bg-alt);
+  transition: transform 0.5s var(--ease-out);
+}
+.player-card:hover .player-card-img { transform: scale(1.05); }
+.player-card-body { padding: 14px 12px 16px; }
+.player-card-body h4 { font-size: 0.9rem; font-weight: 600; color: var(--text); margin-bottom: 3px; }
+.player-card-body span { font-size: 0.68rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.6px; }
+
+/* ---- Team stats ---- */
+.team-stats {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 20px; max-width: 640px; margin: 0 auto;
+}
+.team-stat {
+  text-align: center; padding: 30px 16px;
+  background: rgba(255,255,255,0.06);
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(255,255,255,0.12);
+  transition: transform var(--transition), background var(--transition);
+}
+.team-stat:hover { background: rgba(255,255,255,0.1); transform: translateY(-3px); }
+.team-stat .num {
+  font-family: var(--font-display);
+  font-size: 2.1rem; font-weight: 600;
+  color: #DDE9B8; line-height: 1; margin-bottom: 6px;
+}
+.team-stat .label {
+  font-size: 0.72rem; color: rgba(255,255,255,0.6);
+  text-transform: uppercase; letter-spacing: 1px;
+}
+
+/* ---- Description ---- */
+.desc-text { max-width: 760px; margin: 0 auto; font-size: 1.02rem; color: var(--text-light); line-height: 1.9; }
+.desc-text p { margin-bottom: 16px; }
+.desc-text strong { color: var(--forest); font-weight: 600; }
+
+/* ---- Back link ---- */
+.back-link-wrap { text-align: center; margin-top: 44px; }
+.back-link {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 14px 30px; border-radius: var(--radius-full);
+  background: var(--green-pale); color: var(--forest);
+  font-weight: 600; font-size: 0.92rem;
+  border: 1.5px solid transparent;
+  transition: transform var(--transition), background var(--transition), color var(--transition), box-shadow var(--transition);
+}
+.back-link:hover {
+  background: var(--green); color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(110,159,23,0.28);
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 768px) {
+  .players-grid { grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .team-stats { gap: 12px; }
+  .team-stat { padding: 22px 12px; }
+  .team-stat .num { font-size: 1.6rem; }
+  .player-card-body { padding: 10px 8px 12px; }
+}
+@media (max-width: 480px) {
+  .players-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .player-card-body h4 { font-size: 0.82rem; }
+}

@@ -3,294 +3,42 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Shivshakti Sport Maskarwadi — The pride of Maskarwadi cricket team. A symbol of sportsmanship, discipline and strength.">
+  <meta name="description" content="Shivshakti Sport Maskarwadi — the pride of Maskarwadi's cricket team. A symbol of sportsmanship, discipline and unity.">
+  <meta name="theme-color" content="#0E2A17">
   <title>Shivshakti Sport Maskarwadi Cricket Team</title>
+  <link rel="canonical" href="https://maskarwadi.com/shivshakti-sport/">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Oswald:wght@500;600;700&family=League+Spartan:wght@900&family=Montserrat:wght@800&family=DM+Sans:wght@600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Fraunces:opsz,wght@9..40,400;9..40,500;9..40,600&family=Mukta:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/village.css">
+  <link rel="stylesheet" href="/shivshakti-sport/sport.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <style>
-    /* ===== CRICKET TEAM PAGE STYLES ===== */
 
-    /* ---- Hero ---- */
-    .cricket-hero {
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #ffffff;
-      overflow: hidden;
-      padding: 100px 16px 60px;
-    }
-    .cricket-hero-content {
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 100%;
-    }
-    /* === Full-width Hero SVG === */
-    .hero-svg-wrap {
-      width: 100%;
-      max-width: 1200px;
-      margin: 0 auto;
-      line-height: 0;
-    }
-    .hero-svg-wrap svg {
-      display: block;
-      width: 100%;
-      height: auto;
-    }
-
-    /* ---- View Team button ---- */
-    .hero-btn-wrap {
-      margin-top: 40px;
-      text-align: center;
-    }
-
-    /* ---- Hero Responsive ---- */
-    @media (max-width: 768px) {
-      .cricket-hero { padding: 80px 12px 40px; }
-      .hero-btn-wrap { margin-top: 28px; }
-    }
-    @media (max-width: 480px) {
-      .cricket-hero { padding: 70px 8px 28px; }
-      .hero-btn-wrap { margin-top: 20px; }
-      .hero-btn-wrap .btn { padding: 12px 24px; font-size: 0.85rem; }
-    }
-
-    /* ---- Sections ---- */
-    .cricket-section {
-      padding: 80px 0;
-      position: relative;
-    }
-    .cricket-section--white { background: var(--bg); }
-    .cricket-section--alt { background: var(--bg-alt); }
-    .cricket-section--dark {
-      background: linear-gradient(135deg, var(--green-dim), #0a4f1e);
-      color: #fff;
-    }
-
-    .cricket-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-    .cricket-container--narrow {
-      max-width: 900px;
-    }
-
-    .cricket-section-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 6px 20px;
-      border-radius: 50px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 1px;
-      margin-bottom: 16px;
-      text-transform: uppercase;
-      background: var(--green-pale);
-      color: var(--green-dim);
-    }
-    .cricket-section-tag--light {
-      background: rgba(255,255,255,0.10);
-      color: rgba(255,255,255,0.85);
-    }
-    .cricket-section-title {
-      font-size: clamp(1.6rem, 3.5vw, 2.4rem);
-      font-weight: 700;
-      color: var(--green);
-      margin-bottom: 12px;
-      line-height: 1.2;
-    }
-    .cricket-section-title--light { color: #fff; }
-    .cricket-section-sub {
-      font-size: 1rem;
-      color: var(--text-light);
-      max-width: 600px;
-      line-height: 1.7;
-      margin-bottom: 40px;
-    }
-    .cricket-section-sub--light { color: rgba(255,255,255,0.65); }
-    .cricket-text-center { text-align: center; }
-    .cricket-text-center .cricket-section-sub { margin-left: auto; margin-right: auto; }
-
-    /* ---- Team Title ---- */
-    .team-title-wrap {
-      text-align: center;
-      padding: 40px 24px;
-      border-radius: var(--radius);
-      background: linear-gradient(135deg, var(--green-pale), var(--forest-pale));
-      border: 1.5px solid var(--border-light);
-    }
-    .team-title-wrap .team-icon {
-      font-size: 3rem;
-      margin-bottom: 16px;
-    }
-    .team-title-wrap h2 {
-      font-size: clamp(1.4rem, 3vw, 2rem);
-      font-weight: 700;
-      color: var(--green-dim);
-      margin-bottom: 8px;
-      font-family: 'Cinzel', Georgia, serif;
-      letter-spacing: 1px;
-    }
-    .team-title-wrap p {
-      font-size: 0.95rem;
-      color: var(--text-light);
-      margin: 0;
-    }
-
-    /* ---- Player Cards Grid ---- */
-    .players-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-      gap: 20px;
-    }
-    .player-card {
-      background: var(--card-bg);
-      border-radius: var(--radius-sm);
-      border: 1.5px solid var(--border-light);
-      overflow: hidden;
-      transition: var(--transition);
-      text-align: center;
-      cursor: default;
-    }
-    .player-card:hover {
-      transform: translateY(-5px);
-      box-shadow: var(--shadow);
-      border-color: var(--amber);
-    }
-    .player-card-img {
-      width: 100%;
-      aspect-ratio: 1 / 1;
-      object-fit: cover;
-      display: block;
-      background: var(--bg-alt);
-      transition: transform 0.4s ease;
-    }
-    .player-card:hover .player-card-img { transform: scale(1.05); }
-    .player-card-body {
-      padding: 12px 10px 14px;
-    }
-    .player-card-body h4 {
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--green-dim);
-      margin-bottom: 2px;
-    }
-    .player-card-body span {
-      font-size: 0.7rem;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-    .player-card .img-wrap {
-      overflow: hidden;
-    }
-
-    /* ---- Team Stats ---- */
-    .team-stats {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-      max-width: 700px;
-      margin: 0 auto;
-    }
-    .team-stat {
-      text-align: center;
-      padding: 28px 16px;
-      background: rgba(255,255,255,0.06);
-      border-radius: var(--radius-sm);
-      border: 1px solid rgba(255,255,255,0.10);
-      transition: var(--transition);
-    }
-    .team-stat:hover {
-      background: rgba(255,255,255,0.10);
-      transform: translateY(-3px);
-    }
-    .team-stat .num {
-      font-size: 2rem;
-      font-weight: 800;
-      color: #ffd700;
-      line-height: 1;
-      margin-bottom: 4px;
-    }
-    .team-stat .label {
-      font-size: 0.78rem;
-      color: rgba(255,255,255,0.55);
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    /* ---- Description ---- */
-    .desc-text {
-      max-width: 800px;
-      margin: 0 auto;
-      font-size: 1rem;
-      color: var(--text-light);
-      line-height: 1.9;
-    }
-    .desc-text p { margin-bottom: 16px; }
-
-    /* ---- Back Link ---- */
-    .back-link-wrap {
-      text-align: center;
-      margin-top: 48px;
-    }
-    .back-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 14px 32px;
-      border-radius: 50px;
-      background: var(--green-pale);
-      color: var(--green-dim);
-      font-weight: 600;
-      font-size: 0.92rem;
-      transition: var(--transition);
-      border: 1.5px solid transparent;
-    }
-    .back-link:hover {
-      background: var(--green);
-      color: #fff;
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-btn);
-    }
-
-    /* ---- Responsive ---- */
-    @media (max-width: 992px) {
-      .players-grid { grid-template-columns: repeat(4, 1fr); }
-    }
-    @media (max-width: 768px) {
-      .cricket-section { padding: 48px 0; }
-      .players-grid { grid-template-columns: repeat(3, 1fr); gap: 14px; }
-      .team-stats { grid-template-columns: repeat(3, 1fr); gap: 12px; }
-      .team-stat { padding: 20px 12px; }
-      .team-stat .num { font-size: 1.5rem; }
-    }
-    @media (max-width: 480px) {
-      .players-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-      .player-card-body { padding: 8px 6px 10px; }
-      .player-card-body h4 { font-size: 0.78rem; }
-    }
-  </style>
+  <meta property="og:title" content="Shivshakti Sport Maskarwadi Cricket Team">
+  <meta property="og:description" content="The pride of Maskarwadi's cricket team — a symbol of sportsmanship, discipline and unity.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://maskarwadi.com/shivshakti-sport/">
+  <meta property="og:image" content="https://maskarwadi.com/Images/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://maskarwadi.com/Images/og-image.jpg">
 </head>
 <body>
 
-  <!-- ===== HEADER (exact same as index.html) ===== -->
-  <header class="header" id="header">
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- ===== HEADER ===== -->
+  <header class="header scrolled" id="header">
     <div class="container">
-      <a href="/" class="logo">
-        <svg class="logo-svg" viewBox="0 0 900 220" xmlns="http://www.w3.org/2000/svg">
+      <a href="/" class="logo" aria-label="Maskarwadi — home">
+        <svg class="logo-svg" viewBox="0 0 900 220" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <defs>
             <linearGradient id="hdrGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stop-color="#76AB1B"/>
-              <stop offset="100%" stop-color="#0C702A"/>
+              <stop offset="0%" stop-color="#6E9F17"/>
+              <stop offset="100%" stop-color="#0C6B29"/>
             </linearGradient>
           </defs>
           <g transform="translate(70,45)">
@@ -298,97 +46,59 @@
             <text x="55" y="72" text-anchor="middle" font-family="Cinzel,Georgia,serif" font-size="48" font-weight="700" fill="currentColor">M</text>
           </g>
           <text x="220" y="105" font-family="Cinzel,Georgia,serif" font-size="72" font-weight="700" letter-spacing="4" fill="currentColor">MASKARWADI</text>
-          <line x1="220" y1="125" x2="720" y2="125" stroke="#76AB1B" stroke-width="2"/>
-          <circle cx="470" cy="125" r="6" fill="#76AB1B"/>
-          <path d="M735 118 Q755 95 780 118 Q755 125 735 118Z" fill="#76AB1B"/>
-          <path d="M785 118 Q805 95 830 118 Q805 125 785 118Z" fill="#0C702A"/>
+          <line x1="220" y1="125" x2="720" y2="125" stroke="#6E9F17" stroke-width="2"/>
+          <circle cx="470" cy="125" r="6" fill="#6E9F17"/>
+          <path d="M735 118 Q755 95 780 118 Q755 125 735 118Z" fill="#6E9F17"/>
+          <path d="M785 118 Q805 95 830 118 Q805 125 785 118Z" fill="#0C6B29"/>
         </svg>
       </a>
       <div class="nav-group">
-        <nav>
+        <nav aria-label="Primary">
           <ul class="nav-links" id="navLinks">
-            <li><a href="/#about" onclick="closeNav()">About</a></li>
-            <li><a href="/#life" onclick="closeNav()">Village Life</a></li>
-            <li><a href="/#location" onclick="closeNav()">Location</a></li>
-            <li><a href="/#contact" onclick="closeNav()">Contact</a></li>
+            <li><a href="/#about">About</a></li>
+            <li><a href="/#life">Village Life</a></li>
+            <li><a href="/#location">Location</a></li>
+            <li><a href="/#contact">Contact</a></li>
           </ul>
         </nav>
-        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false" aria-controls="navLinks">
           <span></span><span></span><span></span>
         </button>
       </div>
     </div>
   </header>
 
-  <!-- ===== CRICKET HERO ===== -->
+  <main id="main">
+
+  <h1 class="sr-only">Shivshakti Sport Maskarwadi Cricket Team</h1>
+
+  <!-- ===== HERO ===== -->
   <section class="cricket-hero">
     <div class="cricket-hero-content">
-
-      <div class="hero-svg-wrap">
-        <svg viewBox="0 0 1200 380" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+      <div class="hero-svg-wrap reveal">
+        <svg viewBox="0 0 1200 380" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Shivshakti Sport Maskarwadi">
           <rect width="1200" height="380" fill="#ffffff"/>
-
-          <!-- Side accent -->
-          <rect x="260" y="90" width="6" height="170" fill="#111111"/>
-          <rect x="272" y="90" width="6" height="120" fill="#FF3B30"/>
-
-          <!-- SHIVSHAKTI -->
-          <text x="300"
-                y="170"
-                font-family="'League Spartan', 'Arial Black', sans-serif"
-                font-size="96"
-                font-weight="900"
-                letter-spacing="4"
-                fill="#111111">
-            SHIVSHAKTI
-          </text>
-
-          <!-- SPORT -->
-          <text x="305"
-                y="235"
-                font-family="'Montserrat', Arial, sans-serif"
-                font-size="38"
-                font-weight="800"
-                letter-spacing="20"
-                fill="#FF3B30">
-            SPORT
-          </text>
-
-          <!-- underline -->
-          <line x1="305" y1="255" x2="880" y2="255"
-                stroke="#111111"
-                stroke-width="2"/>
-
-          <!-- MASKARWADI -->
-          <text x="880"
-                y="300"
-                text-anchor="end"
-                font-family="'DM Sans', Arial, sans-serif"
-                font-size="24"
-                font-weight="600"
-                letter-spacing="10"
-                fill="#666666">
-            MASKARWADI
-          </text>
+          <rect x="260" y="90" width="7" height="170" fill="#1A1A17"/>
+          <rect x="273" y="90" width="7" height="120" fill="#B4551E"/>
+          <text x="300" y="176" font-family="'Arial Black', 'Helvetica Neue', Arial, sans-serif" font-size="94" font-weight="900" letter-spacing="1" fill="#1A1A17">SHIVSHAKTI</text>
+          <text x="305" y="235" font-family="'Mukta', Arial, sans-serif" font-size="36" font-weight="700" letter-spacing="18" fill="#B4551E">SPORT</text>
+          <line x1="305" y1="256" x2="880" y2="256" stroke="#1A1A17" stroke-width="2"/>
+          <text x="880" y="300" text-anchor="end" font-family="'Mukta', Arial, sans-serif" font-size="23" font-weight="600" letter-spacing="9" fill="#83847B">MASKARWADI</text>
         </svg>
       </div>
-
-      <div class="hero-btn-wrap">
-        <a href="#team" class="btn btn-primary">
-          <i class="fas fa-users"></i> View Team
-        </a>
+      <div class="hero-btn-wrap reveal delay-1">
+        <a href="#team" class="btn btn-primary"><i class="fas fa-users" aria-hidden="true"></i> View Team</a>
       </div>
-
     </div>
   </section>
 
   <!-- ===== TEAM TITLE ===== -->
-  <section class="cricket-section cricket-section--white" style="padding-top:120px;padding-bottom:40px;">
+  <section class="cricket-section cricket-section--white" style="padding-bottom:0;">
     <div class="cricket-container cricket-container--narrow">
-      <div class="team-title-wrap">
-        <div class="team-icon">🏏</div>
+      <div class="team-title-wrap reveal">
+        <div class="team-icon" aria-hidden="true">&#127951;</div>
         <h2>Shivshakti Sport Maskarwadi<br>Cricket Team</h2>
-        <p>शिवशक्ती स्पोर्ट मस्करवाडी क्रिकेट संघ</p>
+        <p lang="mr">शिवशक्ती स्पोर्ट मस्करवाडी क्रिकेट संघ</p>
       </div>
     </div>
   </section>
@@ -396,28 +106,15 @@
   <!-- ===== TEAM STATS ===== -->
   <section class="cricket-section cricket-section--dark">
     <div class="cricket-container">
-      <div class="cricket-text-center">
-        <span class="cricket-section-tag cricket-section-tag--light">
-          <i class="fas fa-chart-line"></i> Team Stats
-        </span>
+      <div class="cricket-text-center reveal">
+        <span class="cricket-section-tag cricket-section-tag--light"><i class="fas fa-chart-line" aria-hidden="true"></i> Team Stats</span>
         <h2 class="cricket-section-title cricket-section-title--light">Our Strength</h2>
-        <p class="cricket-section-sub cricket-section-sub--light" style="margin-left:auto;margin-right:auto;">
-          Unity, discipline and sportsmanship — that is our true strength.
-        </p>
+        <p class="cricket-section-sub cricket-section-sub--light">Unity, discipline and sportsmanship — that is our true strength.</p>
       </div>
-      <div class="team-stats">
-        <div class="team-stat">
-          <div class="num">17</div>
-          <div class="label">Players</div>
-        </div>
-        <div class="team-stat">
-          <div class="num">🏏</div>
-          <div class="label">Cricket</div>
-        </div>
-        <div class="team-stat">
-          <div class="num">1</div>
-          <div class="label">Team</div>
-        </div>
+      <div class="team-stats reveal delay-1">
+        <div class="team-stat"><div class="num">17</div><div class="label">Players</div></div>
+        <div class="team-stat"><div class="num" aria-hidden="true">&#127951;</div><div class="label">Cricket</div></div>
+        <div class="team-stat"><div class="num">1</div><div class="label">Team</div></div>
       </div>
     </div>
   </section>
@@ -425,203 +122,30 @@
   <!-- ===== TEAM SQUAD ===== -->
   <section class="cricket-section cricket-section--alt" id="team">
     <div class="cricket-container">
-      <div class="cricket-text-center">
-        <span class="cricket-section-tag">
-          <i class="fas fa-id-card"></i> Squad
-        </span>
+      <div class="cricket-text-center reveal">
+        <span class="cricket-section-tag"><i class="fas fa-id-card" aria-hidden="true"></i> Squad</span>
         <h2 class="cricket-section-title">Our Players</h2>
-        <p class="cricket-section-sub" style="margin-left:auto;margin-right:auto;">
-          All the players of our Shivshakti Sport Maskarwadi cricket team.
-        </p>
+        <p class="cricket-section-sub">All the players of our Shivshakti Sport Maskarwadi cricket team.</p>
       </div>
 
-      <div class="players-grid">
-        <!-- Ajit Mane -->
-        <div class="player-card">
-          <div class="img-wrap">
-            <img src="/Images/ajit-mane.jpg" alt="Ajit Mane" class="player-card-img" loading="lazy">
-          </div>
-          <div class="player-card-body">
-            <h4>Ajit Mane</h4>
-            <span>Player</span>
-          </div>
-        </div>
-
-        <!-- Ajay Mane -->
-        <div class="player-card">
-          <div class="img-wrap">
-            <img src="/Images/Ajay Mane.jpeg" alt="Ajay Mane" class="player-card-img" loading="lazy">
-          </div>
-          <div class="player-card-body">
-            <h4>Ajay Mane</h4>
-            <span>Player</span>
-          </div>
-        </div>
-
-        <!-- Akash Mane -->
-        <div class="player-card">
-          <div class="img-wrap">
-            <img src="/Images/Akash.jpeg" alt="Akash Mane" class="player-card-img" loading="lazy">
-          </div>
-          <div class="player-card-body">
-            <h4>Akash Mane</h4>
-            <span>Player</span>
-          </div>
-        </div>
-
-        <!-- Gopi Mane -->
-        <div class="player-card">
-          <div class="img-wrap">
-            <img src="/Images/Gopi.jpeg" alt="Gopi Mane" class="player-card-img" loading="lazy">
-          </div>
-          <div class="player-card-body">
-            <h4>Gopi Mane</h4>
-            <span>Player</span>
-          </div>
-        </div>
-
-        <!-- Yogesh Suryavanshi -->
-        <div class="player-card">
-          <div class="img-wrap">
-            <img src="/Images/Yogesh.jpeg" alt="Yogesh Suryavanshi" class="player-card-img" loading="lazy">
-          </div>
-          <div class="player-card-body">
-            <h4>Yogesh Suryavanshi</h4>
-            <span>Player</span>
-          </div>
-        </div>
-
-        <!-- Krushnat Mane -->
-        <div class="player-card">
-          <div class="img-wrap">
-            <img src="/Images/Krushnat.jpeg" alt="Krushnat Mane" class="player-card-img" loading="lazy">
-          </div>
-          <div class="player-card-body">
-            <h4>Krushnat Mane</h4>
-            <span>Player</span>
-          </div>
-        </div>
-
-        <!-- Kuldip Mane -->
-        <div class="player-card">
-          <div class="img-wrap">
-            <img src="/Images/Kuldip.jpeg" alt="Kuldip Mane" class="player-card-img" loading="lazy">
-          </div>
-          <div class="player-card-body">
-            <h4>Kuldip Mane</h4>
-            <span>Player</span>
-          </div>
-        </div>
-
-        <!-- Mohan Mane -->
-        <div class="player-card">
-          <div class="img-wrap">
-            <img src="/Images/Mohan Mane.jpeg" alt="Mohan Mane" class="player-card-img" loading="lazy">
-          </div>
-          <div class="player-card-body">
-            <h4>Mohan Mane</h4>
-            <span>Player</span>
-          </div>
-        </div>
-
-        <!-- Pravi Mane -->
-        <div class="player-card">
-          <div class="img-wrap">
-            <img src="/Images/Pravi mane.jpeg" alt="Pravi Mane" class="player-card-img" loading="lazy">
-          </div>
-          <div class="player-card-body">
-            <h4>Pravi Mane</h4>
-            <span>Player</span>
-          </div>
-        </div>
-
-        <!-- Rahul Mane -->
-        <div class="player-card">
-          <div class="img-wrap">
-            <img src="/Images/Rahul Mane.jpeg" alt="Rahul Mane" class="player-card-img" loading="lazy">
-          </div>
-          <div class="player-card-body">
-            <h4>Rahul Mane</h4>
-            <span>Player</span>
-          </div>
-        </div>
-
-        <!-- Ravi Mane -->
-        <div class="player-card">
-          <div class="img-wrap">
-            <img src="/Images/Ravi.jpeg" alt="Ravi Mane" class="player-card-img" loading="lazy">
-          </div>
-          <div class="player-card-body">
-            <h4>Ravi Mane</h4>
-            <span>Player</span>
-          </div>
-        </div>
-
-        <!-- Sachin Mane -->
-        <div class="player-card">
-          <div class="img-wrap">
-            <img src="/Images/Sachin.jpeg" alt="Sachin Mane" class="player-card-img" loading="lazy">
-          </div>
-          <div class="player-card-body">
-            <h4>Sachin Mane</h4>
-            <span>Player</span>
-          </div>
-        </div>
-
-        <!-- Saideep Mane -->
-        <div class="player-card">
-          <div class="img-wrap">
-            <img src="/Images/Saideep mane.jpeg" alt="Saideep Mane" class="player-card-img" loading="lazy">
-          </div>
-          <div class="player-card-body">
-            <h4>Saideep Mane</h4>
-            <span>Player</span>
-          </div>
-        </div>
-
-        <!-- Sunil Mane -->
-        <div class="player-card">
-          <div class="img-wrap">
-            <img src="/Images/Sunil Mane.jpeg" alt="Sunil Mane" class="player-card-img" loading="lazy">
-          </div>
-          <div class="player-card-body">
-            <h4>Sunil Mane</h4>
-            <span>Player</span>
-          </div>
-        </div>
-
-        <!-- Suraj Mane -->
-        <div class="player-card">
-          <div class="img-wrap">
-            <img src="/Images/Suraj.jpeg" alt="Suraj Mane" class="player-card-img" loading="lazy">
-          </div>
-          <div class="player-card-body">
-            <h4>Suraj Mane</h4>
-            <span>Player</span>
-          </div>
-        </div>
-
-        <!-- Vijay Mane -->
-        <div class="player-card">
-          <div class="img-wrap">
-            <img src="/Images/Vijay mane.jpeg" alt="Vijay Mane" class="player-card-img" loading="lazy">
-          </div>
-          <div class="player-card-body">
-            <h4>Vijay Mane</h4>
-            <span>Player</span>
-          </div>
-        </div>
-
-        <!-- Vikas Mane -->
-        <div class="player-card">
-          <div class="img-wrap">
-            <img src="/Images/Vikas Mane.jpeg" alt="Vikas Mane" class="player-card-img" loading="lazy">
-          </div>
-          <div class="player-card-body">
-            <h4>Vikas Mane</h4>
-            <span>Player</span>
-          </div>
-        </div>
+      <div class="players-grid reveal delay-1">
+        <div class="player-card"><div class="img-wrap"><img src="/Images/ajit-mane.jpg" alt="Ajit Mane" class="player-card-img" width="640" height="640" loading="lazy"></div><div class="player-card-body"><h4>Ajit Mane</h4><span>Player</span></div></div>
+        <div class="player-card"><div class="img-wrap"><img src="/Images/Ajay Mane.jpeg" alt="Ajay Mane" class="player-card-img" width="640" height="640" loading="lazy"></div><div class="player-card-body"><h4>Ajay Mane</h4><span>Player</span></div></div>
+        <div class="player-card"><div class="img-wrap"><img src="/Images/Akash.jpeg" alt="Akash Mane" class="player-card-img" width="640" height="640" loading="lazy"></div><div class="player-card-body"><h4>Akash Mane</h4><span>Player</span></div></div>
+        <div class="player-card"><div class="img-wrap"><img src="/Images/Gopi.jpeg" alt="Gopi Mane" class="player-card-img" width="640" height="640" loading="lazy"></div><div class="player-card-body"><h4>Gopi Mane</h4><span>Player</span></div></div>
+        <div class="player-card"><div class="img-wrap"><img src="/Images/Yogesh.jpeg" alt="Yogesh Suryavanshi" class="player-card-img" width="640" height="640" loading="lazy"></div><div class="player-card-body"><h4>Yogesh Suryavanshi</h4><span>Player</span></div></div>
+        <div class="player-card"><div class="img-wrap"><img src="/Images/Krushnat.jpeg" alt="Krushnat Mane" class="player-card-img" width="640" height="640" loading="lazy"></div><div class="player-card-body"><h4>Krushnat Mane</h4><span>Player</span></div></div>
+        <div class="player-card"><div class="img-wrap"><img src="/Images/Kuldip.jpeg" alt="Kuldip Mane" class="player-card-img" width="640" height="640" loading="lazy"></div><div class="player-card-body"><h4>Kuldip Mane</h4><span>Player</span></div></div>
+        <div class="player-card"><div class="img-wrap"><img src="/Images/Mohan Mane.jpeg" alt="Mohan Mane" class="player-card-img" width="640" height="640" loading="lazy"></div><div class="player-card-body"><h4>Mohan Mane</h4><span>Player</span></div></div>
+        <div class="player-card"><div class="img-wrap"><img src="/Images/Pravi mane.jpeg" alt="Pravi Mane" class="player-card-img" width="640" height="640" loading="lazy"></div><div class="player-card-body"><h4>Pravi Mane</h4><span>Player</span></div></div>
+        <div class="player-card"><div class="img-wrap"><img src="/Images/Rahul Mane.jpeg" alt="Rahul Mane" class="player-card-img" width="640" height="640" loading="lazy"></div><div class="player-card-body"><h4>Rahul Mane</h4><span>Player</span></div></div>
+        <div class="player-card"><div class="img-wrap"><img src="/Images/Ravi.jpeg" alt="Ravi Mane" class="player-card-img" width="640" height="640" loading="lazy"></div><div class="player-card-body"><h4>Ravi Mane</h4><span>Player</span></div></div>
+        <div class="player-card"><div class="img-wrap"><img src="/Images/Sachin.jpeg" alt="Sachin Mane" class="player-card-img" width="640" height="640" loading="lazy"></div><div class="player-card-body"><h4>Sachin Mane</h4><span>Player</span></div></div>
+        <div class="player-card"><div class="img-wrap"><img src="/Images/Saideep mane.jpeg" alt="Saideep Mane" class="player-card-img" width="640" height="640" loading="lazy"></div><div class="player-card-body"><h4>Saideep Mane</h4><span>Player</span></div></div>
+        <div class="player-card"><div class="img-wrap"><img src="/Images/Sunil Mane.jpeg" alt="Sunil Mane" class="player-card-img" width="640" height="640" loading="lazy"></div><div class="player-card-body"><h4>Sunil Mane</h4><span>Player</span></div></div>
+        <div class="player-card"><div class="img-wrap"><img src="/Images/Suraj.jpeg" alt="Suraj Mane" class="player-card-img" width="640" height="640" loading="lazy"></div><div class="player-card-body"><h4>Suraj Mane</h4><span>Player</span></div></div>
+        <div class="player-card"><div class="img-wrap"><img src="/Images/Vijay mane.jpeg" alt="Vijay Mane" class="player-card-img" width="640" height="640" loading="lazy"></div><div class="player-card-body"><h4>Vijay Mane</h4><span>Player</span></div></div>
+        <div class="player-card"><div class="img-wrap"><img src="/Images/Vikas Mane.jpeg" alt="Vikas Mane" class="player-card-img" width="640" height="640" loading="lazy"></div><div class="player-card-body"><h4>Vikas Mane</h4><span>Player</span></div></div>
       </div>
     </div>
   </section>
@@ -629,45 +153,33 @@
   <!-- ===== ABOUT THE TEAM ===== -->
   <section class="cricket-section cricket-section--white">
     <div class="cricket-container cricket-container--narrow">
-      <div class="cricket-text-center">
-        <span class="cricket-section-tag">
-          <i class="fas fa-info-circle"></i> About Us
-        </span>
+      <div class="cricket-text-center reveal">
+        <span class="cricket-section-tag"><i class="fas fa-circle-info" aria-hidden="true"></i> About Us</span>
         <h2 class="cricket-section-title">Shivshakti Sport Maskarwadi</h2>
       </div>
-      <div class="desc-text">
-        <p>
-          <strong>Shivshakti Sport Maskarwadi</strong> is a powerful cricket initiative by the youth of Maskarwadi village.
-          Inspired by the strength of Shivshakti, we showcase our energy, discipline and team spirit on the cricket field.
-        </p>
-        <p>
-          Our team not only plays cricket but also works to develop sports culture, health and a positive competitive
-          spirit among the youth of the village. Coming together on the field, we recognize each other's strengths
-          and weaknesses, support one another, and strive for victory.
-        </p>
-        <p>
-          The young generation of Maskarwadi is now making its mark on the cricket field.
-          Shivshakti Sport is not just a team — it is a family, where every player matters.
-        </p>
+      <div class="desc-text reveal delay-1">
+        <p><strong>Shivshakti Sport Maskarwadi</strong> is a powerful cricket initiative by the youth of Maskarwadi village. Inspired by the strength of Shivshakti, we showcase our energy, discipline and team spirit on the cricket field.</p>
+        <p>Our team not only plays cricket but also works to develop sports culture, health and a positive competitive spirit among the youth of the village. Coming together on the field, we recognize each other's strengths and weaknesses, support one another, and strive for victory.</p>
+        <p>The young generation of Maskarwadi is now making its mark on the cricket field. Shivshakti Sport is not just a team — it is a family, where every player matters.</p>
       </div>
-      <div class="back-link-wrap">
-        <a href="/" class="back-link">
-          <i class="fas fa-arrow-left"></i> Back to Main Page
-        </a>
+      <div class="back-link-wrap reveal">
+        <a href="/" class="back-link"><i class="fas fa-arrow-left" aria-hidden="true"></i> Back to Main Page</a>
       </div>
     </div>
   </section>
 
-  <!-- ===== FOOTER (exact same as index.html) ===== -->
+  </main>
+
+  <!-- ===== FOOTER ===== -->
   <footer class="footer">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <svg class="footer-logo-svg" viewBox="0 0 900 220" xmlns="http://www.w3.org/2000/svg">
+          <svg class="footer-logo-svg" viewBox="0 0 900 220" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <defs>
               <linearGradient id="ftrGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stop-color="#76AB1B"/>
-                <stop offset="100%" stop-color="#0C702A"/>
+                <stop offset="0%" stop-color="#6E9F17"/>
+                <stop offset="100%" stop-color="#0C6B29"/>
               </linearGradient>
             </defs>
             <g transform="translate(70,45)">
@@ -675,10 +187,10 @@
               <text x="55" y="72" text-anchor="middle" font-family="Cinzel,Georgia,serif" font-size="48" font-weight="700" fill="#fff">M</text>
             </g>
             <text x="220" y="105" font-family="Cinzel,Georgia,serif" font-size="72" font-weight="700" letter-spacing="4" fill="#fff">MASKARWADI</text>
-            <line x1="220" y1="125" x2="720" y2="125" stroke="#76AB1B" stroke-width="2"/>
-            <circle cx="470" cy="125" r="6" fill="#76AB1B"/>
-            <path d="M735 118 Q755 95 780 118 Q755 125 735 118Z" fill="#76AB1B"/>
-            <path d="M785 118 Q805 95 830 118 Q805 125 785 118Z" fill="#0C702A"/>
+            <line x1="220" y1="125" x2="720" y2="125" stroke="#6E9F17" stroke-width="2"/>
+            <circle cx="470" cy="125" r="6" fill="#6E9F17"/>
+            <path d="M735 118 Q755 95 780 118 Q755 125 735 118Z" fill="#6E9F17"/>
+            <path d="M785 118 Q805 95 830 118 Q805 125 785 118Z" fill="#0C6B29"/>
           </svg>
           <p>A peaceful village in the Satara district of Maharashtra, India. Rooted in tradition, growing toward the future.</p>
         </div>
@@ -688,21 +200,15 @@
             <li><a href="/#about">About</a></li>
             <li><a href="/#life">Village Life</a></li>
             <li><a href="/#location">Location</a></li>
-            <li><a href="/shivshakti-sport">Shivshakti Sport Maskarwadi</a></li>
+            <li><a href="/shivshakti-sport/">Shivshakti Sport Maskarwadi</a></li>
           </ul>
         </div>
         <div>
           <h4>Connect</h4>
           <ul>
-            <li><a href="mailto:maskarwadifoundation@gmail.com">Email Us</a></li>
-            <li><a href="#">Instagram</a></li>
-            <li><a href="#">Facebook</a></li>
+            <li><a href="mailto:maskarwadifoundation@gmail.com"><i class="fas fa-envelope" aria-hidden="true"></i> Email Us</a></li>
+            <li><a href="https://foundation.maskarwadi.com/"><i class="fas fa-hand-holding-heart" aria-hidden="true"></i> Maskarwadi Foundation</a></li>
           </ul>
-          <div class="footer-social">
-            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-          </div>
         </div>
       </div>
 
@@ -710,55 +216,22 @@
         <h4>Website Developed By</h4>
         <div class="footer-dev-grid">
           <div class="footer-dev-card">
-            <img src="/Images/ajay-mane.jpg" alt="Ajay Mane" class="footer-dev-img" loading="lazy">
+            <img src="/Images/ajay-mane.jpg" alt="Ajay Mane" class="footer-dev-img" width="108" height="108" loading="lazy">
             <span class="footer-dev-name">Ajay Mane</span>
           </div>
           <div class="footer-dev-card">
-            <img src="/Images/ajit-mane.jpg" alt="Ajit Mane" class="footer-dev-img" loading="lazy">
+            <img src="/Images/ajit-mane.jpg" alt="Ajit Mane" class="footer-dev-img" width="108" height="108" loading="lazy">
             <span class="footer-dev-name">Ajit Mane</span>
           </div>
         </div>
       </div>
 
       <div class="footer-bottom">
-        <p>&copy; 2026 Maskarwadi Village. Crafted with care.</p>
+        <p>&copy; <span id="footerYear">2026</span> Maskarwadi Village. Crafted with care.</p>
       </div>
     </div>
   </footer>
 
-  <!-- ===== NAV TOGGLE SCRIPT ===== -->
-  <script>
-    const navToggle = document.getElementById('navToggle');
-    const navLinks = document.getElementById('navLinks');
-    navToggle.addEventListener('click', () => {
-      navToggle.classList.toggle('open');
-      navLinks.classList.toggle('open');
-    });
-    function closeNav() {
-      navToggle.classList.remove('open');
-      navLinks.classList.remove('open');
-    }
-
-    // ===== Header scroll effect =====
-    const header = document.getElementById('header');
-    window.addEventListener('scroll', () => {
-      header.classList.toggle('scrolled', window.scrollY > 60);
-    });
-
-    // ===== Smooth click for nav links =====
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        const href = this.getAttribute('href');
-        if (href === '#') return;
-        e.preventDefault();
-        const target = document.querySelector(href);
-        if (target) {
-          const offset = header.offsetHeight + 10;
-          const targetPos = target.getBoundingClientRect().top + window.scrollY - offset;
-          window.scrollTo({ top: targetPos, behavior: 'smooth' });
-        }
-      });
-    });
-  </script>
+  <script src="/shivshakti-sport/sport.js"></script>
 </body>
 </html>
