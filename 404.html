@@ -4,23 +4,39 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#0C3A1C">
   <title>Page not found | Maskarwadi</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Fraunces:opsz,wght@9..40,400;9..40,500&family=Mukta:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Fraunces:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,500&family=Mukta:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/village.css">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <style>
-    .nf { min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 40px 24px; background: var(--bg-alt); }
+    .nf {
+      min-height: 100vh; min-height: 100svh;
+      display: grid; place-items: center; text-align: center;
+      padding: 40px 24px; background: var(--sand);
+    }
     .nf-inner { max-width: 460px; }
-    .nf h1 { font-family: var(--font-display); font-size: clamp(3.5rem, 12vw, 6rem); color: var(--green); line-height: 1; margin-bottom: 12px; font-weight: 600; }
-    .nf h2 { font-family: var(--font-display); font-size: 1.5rem; color: var(--text); margin-bottom: 12px; font-weight: 500; }
-    .nf p { color: var(--text-light); margin-bottom: 28px; }
+    .nf .leaf-rule { color: var(--green); margin-bottom: 22px; }
+    .nf h1 {
+      font-family: var(--font-display); font-weight: 600;
+      font-size: clamp(3.5rem, 13vw, 6.5rem); line-height: 1;
+      color: var(--green-deep); margin-bottom: 10px;
+    }
+    .nf h2 {
+      font-family: var(--font-display); font-weight: 500;
+      font-size: 1.5rem; color: var(--ink); margin-bottom: 12px;
+    }
+    .nf p { color: var(--ink-2); margin-bottom: 28px; }
   </style>
 </head>
 <body>
   <main class="nf">
     <div class="nf-inner">
+      <div class="leaf-rule" aria-hidden="true">
+        <svg class="leaf" viewBox="0 0 24 24"><path d="M20 4C11 5 5 11 4 20c9-1 15-7 16-16Z"/></svg>
+      </div>
       <h1>404</h1>
       <h2>Page not found</h2>
       <p>The page you are looking for may have moved or no longer exists.</p>

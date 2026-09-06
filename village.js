@@ -12,7 +12,6 @@ const translations = {
     hero_subtitle: 'एक शांत गाव जिथे परंपरा आणि निसर्ग यांचा सुंदर मिलाफ झालेला आहे. उबदार समुदाय, हिरवळीची शेते आणि सांस्कृतिक वारशात रुजलेली प्रगतीची भावना.',
     hero_btn1: 'आमच्या गावाची ओळख',
     hero_btn2: 'मस्करवाडी फाउंडेशन',
-    hero_scroll: 'स्क्रोल करा',
     about_tag: 'गावाबद्दल',
     about_title: 'महाराष्ट्राच्या ग्रामीण भागाचे हृदय',
     about_subtitle: 'सातारा जिल्ह्यात वसलेले, मस्करवाडी हे गाव महाराष्ट्राच्या ग्रामीण भागाचे शाश्वत सौंदर्य आणि चिरस्थायी भावना दर्शवते.',
@@ -53,11 +52,16 @@ const translations = {
     loc_rail_val: 'कराड रेल्वे स्थानक (अंदाजे १५ किमी)',
     loc_air_label: 'जवळचे विमानतळ',
     loc_air_val: 'पुणे आंतरराष्ट्रीय विमानतळ (अंदाजे १६० किमी)',
+    loc_directions: 'दिशा मिळवा',
+    map_label: 'मस्करवाडी',
+    about_media_tag: 'मस्करवाडी · सातारा',
+    cta_tag: 'संपर्कात राहा',
     cta_title: 'मस्करवाडीच्या आकर्षणाचा अनुभव घ्या',
     cta_subtitle: 'तुम्ही भेट देऊ इच्छिता, समुदायाशी संपर्क साधू इच्छिता किंवा गावातील जीवनाबद्दल अधिक जाणून घेऊ इच्छिता, आम्ही तुमचे मोकळ्या मनाने स्वागत करतो.',
     cta_btn: 'संपर्क साधा',
     footer_desc: 'महाराष्ट्राच्या सातारा जिल्ह्यातील एक शांत गाव. परंपरेत रुजलेले, भविष्याकडे वाढणारे.',
     footer_links: 'द्रुत लिंक्स',
+    footer_more: 'अधिक',
     footer_connect: 'संपर्क',
     footer_email: 'ईमेल करा',
     footer_copy: 'मस्करवाडी गाव. प्रेमाने तयार केले.',
@@ -75,7 +79,6 @@ const translations = {
     hero_subtitle: 'A peaceful village where tradition meets nature. Home to warm-hearted communities, lush green fields, and a spirit of progress rooted in cultural heritage.',
     hero_btn1: 'Discover Our Village',
     hero_btn2: 'Maskarwadi Foundation',
-    hero_scroll: 'Scroll',
     about_tag: 'About the Village',
     about_title: "Heart of Maharashtra's Countryside",
     about_subtitle: 'Nestled in the Satara district, Maskarwadi is a village that embodies the timeless beauty and enduring spirit of rural Maharashtra.',
@@ -119,8 +122,13 @@ const translations = {
     cta_title: 'Experience the Charm of Maskarwadi',
     cta_subtitle: 'Whether you wish to visit, connect with the community, or learn more about village life, we welcome you with open hearts.',
     cta_btn: 'Get in Touch',
+    loc_directions: 'Get Directions',
+    map_label: 'Maskarwadi',
+    about_media_tag: 'Maskarwadi · Satara',
+    cta_tag: 'Get in Touch',
     footer_desc: 'A peaceful village in the Satara district of Maharashtra, India. Rooted in tradition, growing toward the future.',
     footer_links: 'Quick Links',
+    footer_more: 'More',
     footer_connect: 'Connect',
     footer_email: 'Email Us',
     footer_copy: 'Maskarwadi Village. Crafted with care.',
@@ -165,6 +173,7 @@ function applyLanguage(lang) {
     btn.classList.toggle('active', isActive);
     btn.setAttribute('aria-pressed', String(isActive));
   });
+  document.querySelectorAll('.lang-toggle').forEach(t => { t.dataset.active = lang; });
 
   try { localStorage.setItem('maskarwadi_lang', lang); } catch (e) {}
 }

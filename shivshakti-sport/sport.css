@@ -1,139 +1,140 @@
 /* ============================================================
    SHIVSHAKTI SPORT MASKARWADI — page styles
-   Extends village.css design system.
+   Extends the village.css design system (same tokens).
    ============================================================ */
 
 .cricket-hero {
   position: relative;
-  display: flex; align-items: center; justify-content: center;
-  background: var(--bg);
+  display: grid; place-items: center;
+  padding: clamp(120px, 18vw, 168px) var(--gutter) clamp(48px, 9vw, 76px);
+  background: var(--paper);
   overflow: hidden;
-  padding: clamp(96px, 16vw, 140px) var(--gutter) clamp(48px, 9vw, 72px);
 }
-.cricket-hero-content {
-  text-align: center;
-  display: flex; flex-direction: column; align-items: center;
-  width: 100%;
+.cricket-hero::after {
+  content: ''; position: absolute; inset: auto 0 0 0; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--line), transparent);
 }
-.hero-svg-wrap {
-  width: 100%; max-width: 900px; margin: 0 auto; line-height: 0;
-}
+.cricket-hero-content { width: 100%; display: flex; flex-direction: column; align-items: center; }
+.hero-svg-wrap { width: 100%; max-width: 880px; margin: 0 auto; line-height: 0; }
 .hero-svg-wrap svg { display: block; width: 100%; height: auto; }
 .hero-btn-wrap { margin-top: clamp(28px, 5vw, 44px); }
 
 /* ---- Sections ---- */
-.cricket-section { padding: var(--section-pad) 0; position: relative; }
-.cricket-section--white { background: var(--bg); }
-.cricket-section--alt { background: var(--bg-alt); }
+.cricket-section { position: relative; padding-block: var(--section); }
+.cricket-section--white { background: var(--paper); }
+.cricket-section--alt   { background: var(--sand); }
 .cricket-section--dark {
-  background: var(--bg-deep);
+  background: var(--green-forest);
   color: #fff;
   overflow: hidden;
 }
 .cricket-section--dark::before {
   content: ''; position: absolute; inset: 0;
-  background: radial-gradient(90% 140% at 50% 0%, rgba(110,159,23,0.26), transparent 60%);
+  background: radial-gradient(80% 120% at 50% -10%, rgba(94,140,30,0.26), transparent 60%);
 }
 .cricket-container {
-  max-width: var(--content-width);
-  margin: 0 auto;
-  padding: 0 var(--gutter);
   position: relative; z-index: 1;
+  max-width: var(--wrap);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
 }
 .cricket-container--narrow { max-width: 860px; }
 
 .cricket-section-tag {
-  display: inline-flex; align-items: center; gap: 8px;
-  padding: 7px 16px; border-radius: var(--radius-full);
-  font-size: 0.72rem; font-weight: 700; letter-spacing: 1.2px;
-  margin-bottom: 18px; text-transform: uppercase;
-  background: var(--green-pale); color: var(--forest);
+  display: inline-flex; align-items: center; gap: 10px;
+  margin-bottom: 16px;
+  font-size: var(--fs-label); font-weight: 700;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--green-deep);
 }
-.cricket-section-tag--light { background: rgba(255,255,255,0.12); color: #DDE9B8; }
+.cricket-section-tag::before {
+  content: ''; width: 26px; height: 2px; border-radius: 2px; background: var(--green);
+}
+.cricket-section-tag--light { color: #D7E7A6; }
+.cricket-section-tag--light::before { background: currentColor; }
+
 .cricket-section-title {
   font-family: var(--font-display);
-  font-size: clamp(1.9rem, 3.6vw, 2.6rem);
-  font-weight: 500;
-  color: var(--text);
-  margin-bottom: 14px; line-height: 1.18;
-  letter-spacing: -0.01em;
-  text-wrap: balance;
+  font-size: var(--fs-h2); font-weight: 500;
+  line-height: 1.16; letter-spacing: -0.015em;
+  color: var(--ink); text-wrap: balance;
+  margin-bottom: 14px;
 }
 .cricket-section-title--light { color: #fff; }
 .cricket-section-sub {
-  font-size: 1.02rem; color: var(--text-light);
-  max-width: 600px; line-height: 1.7; margin-bottom: 44px;
+  font-size: var(--fs-lead); line-height: 1.7;
+  color: var(--ink-2); max-width: 600px; margin-bottom: 44px;
 }
 .cricket-section-sub--light { color: rgba(255,255,255,0.68); }
 .cricket-text-center { text-align: center; }
-.cricket-text-center .cricket-section-sub { margin-left: auto; margin-right: auto; }
+.cricket-text-center .cricket-section-tag { justify-content: center; }
+.cricket-text-center .cricket-section-sub { margin-inline: auto; }
 
 /* ---- Team title ---- */
 .team-title-wrap {
   text-align: center;
-  padding: clamp(32px, 6vw, 48px) 24px;
-  border-radius: var(--radius);
-  background: var(--green-pale);
-  border: 1px solid var(--border-light);
+  padding: clamp(32px, 6vw, 52px) 24px;
+  border-radius: var(--r-lg);
+  background: var(--green-050);
+  border: 1px solid var(--green-100);
 }
-.team-title-wrap .team-icon { font-size: 2.6rem; margin-bottom: 14px; }
+.team-title-wrap .team-icon { font-size: 2.4rem; margin-bottom: 14px; }
 .team-title-wrap h2 {
-  font-size: clamp(1.4rem, 3vw, 2rem);
-  font-weight: 500;
-  color: var(--forest-dim);
-  margin-bottom: 8px;
   font-family: var(--font-display);
-  line-height: 1.25;
+  font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 500;
+  line-height: 1.25; color: var(--green-deep); margin-bottom: 8px;
 }
-.team-title-wrap p { font-size: 0.98rem; color: var(--text-light); margin: 0; }
+.team-title-wrap p { font-size: 0.98rem; color: var(--ink-2); margin: 0; }
 
 /* ---- Player cards ---- */
 .players-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(158px, 1fr));
   gap: 20px;
 }
 .player-card {
-  background: var(--card-bg);
-  border-radius: var(--radius-sm);
-  border: 1px solid var(--border-light);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
   overflow: hidden;
-  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
   text-align: center;
+  transition: transform var(--t), box-shadow var(--t), border-color var(--t);
 }
 .player-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow);
-  border-color: var(--green);
+  transform: translateY(-5px);
+  border-color: var(--green-100);
+  box-shadow: var(--shadow-md);
 }
-.player-card .img-wrap { overflow: hidden; }
+.player-card .img-wrap { overflow: hidden; background: var(--sand); }
 .player-card-img {
-  width: 100%; aspect-ratio: 1 / 1; object-fit: cover;
-  display: block; background: var(--bg-alt);
-  transition: transform 0.5s var(--ease-out);
+  width: 100%; aspect-ratio: 1 / 1; object-fit: cover; display: block;
+  transition: transform var(--t-slow);
 }
 .player-card:hover .player-card-img { transform: scale(1.05); }
 .player-card-body { padding: 14px 12px 16px; }
-.player-card-body h4 { font-size: 0.9rem; font-weight: 600; color: var(--text); margin-bottom: 3px; }
-.player-card-body span { font-size: 0.68rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.6px; }
+.player-card-body h4 { font-size: 0.9rem; font-weight: 600; color: var(--ink); margin-bottom: 3px; }
+.player-card-body span {
+  font-size: 0.68rem; color: var(--ink-3);
+  text-transform: uppercase; letter-spacing: 0.6px;
+}
 
 /* ---- Team stats ---- */
 .team-stats {
   display: grid; grid-template-columns: repeat(3, 1fr);
-  gap: 20px; max-width: 640px; margin: 0 auto;
+  gap: 18px; max-width: 640px; margin: 0 auto;
 }
 .team-stat {
   text-align: center; padding: 30px 16px;
-  background: rgba(255,255,255,0.06);
-  border-radius: var(--radius-sm);
+  background: rgba(255,255,255,0.05);
   border: 1px solid rgba(255,255,255,0.12);
-  transition: transform var(--transition), background var(--transition);
+  border-radius: var(--r-md);
+  transition: transform var(--t), background var(--t);
 }
-.team-stat:hover { background: rgba(255,255,255,0.1); transform: translateY(-3px); }
+.team-stat:hover { background: rgba(255,255,255,0.09); transform: translateY(-3px); }
 .team-stat .num {
   font-family: var(--font-display);
-  font-size: 2.1rem; font-weight: 600;
-  color: #DDE9B8; line-height: 1; margin-bottom: 6px;
+  font-size: clamp(1.8rem, 4vw, 2.2rem); font-weight: 600;
+  line-height: 1; color: #D7E7A6; margin-bottom: 6px;
 }
 .team-stat .label {
   font-size: 0.72rem; color: rgba(255,255,255,0.6);
@@ -141,24 +142,24 @@
 }
 
 /* ---- Description ---- */
-.desc-text { max-width: 760px; margin: 0 auto; font-size: 1.02rem; color: var(--text-light); line-height: 1.9; }
+.desc-text { max-width: 760px; margin: 0 auto; font-size: 1.02rem; color: var(--ink-2); line-height: 1.9; }
 .desc-text p { margin-bottom: 16px; }
-.desc-text strong { color: var(--forest); font-weight: 600; }
+.desc-text strong { color: var(--green-deep); font-weight: 600; }
 
 /* ---- Back link ---- */
 .back-link-wrap { text-align: center; margin-top: 44px; }
 .back-link {
   display: inline-flex; align-items: center; gap: 10px;
-  padding: 14px 30px; border-radius: var(--radius-full);
-  background: var(--green-pale); color: var(--forest);
+  padding: 14px 30px; border-radius: var(--r-pill);
+  background: var(--green-050); color: var(--green-deep);
+  border: 1.5px solid var(--green-100);
   font-weight: 600; font-size: 0.92rem;
-  border: 1.5px solid transparent;
-  transition: transform var(--transition), background var(--transition), color var(--transition), box-shadow var(--transition);
+  transition: transform var(--t), background var(--t), color var(--t), box-shadow var(--t);
 }
 .back-link:hover {
-  background: var(--green); color: #fff;
+  background: var(--green-deep); color: #fff; border-color: transparent;
   transform: translateY(-2px);
-  box-shadow: 0 12px 28px rgba(110,159,23,0.28);
+  box-shadow: 0 14px 30px -10px rgba(11,93,37,0.5);
 }
 
 /* ---- Responsive ---- */
@@ -166,10 +167,9 @@
   .players-grid { grid-template-columns: repeat(3, 1fr); gap: 14px; }
   .team-stats { gap: 12px; }
   .team-stat { padding: 22px 12px; }
-  .team-stat .num { font-size: 1.6rem; }
   .player-card-body { padding: 10px 8px 12px; }
 }
-@media (max-width: 480px) {
+@media (max-width: 430px) {
   .players-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
   .player-card-body h4 { font-size: 0.82rem; }
 }
