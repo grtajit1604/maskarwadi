@@ -493,14 +493,12 @@ section { position: relative; padding-block: var(--section); }
   box-shadow: var(--shadow-md);
   background: #EDF0DE;
 }
-.about-image-wrap img,
-.about-image-wrap .about-illustration {
+.about-image-wrap img {
   width: 100%; height: auto; display: block;
   aspect-ratio: 4 / 5; object-fit: cover;
   transition: transform var(--t-slow);
 }
-.about-media:hover .about-image-wrap img,
-.about-media:hover .about-image-wrap .about-illustration { transform: scale(1.03); }
+.about-media:hover .about-image-wrap img { transform: scale(1.03); }
 .about-image-tag {
   position: absolute; left: 16px; bottom: 16px; z-index: 2;
   padding: 8px 16px;
