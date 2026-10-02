@@ -203,12 +203,17 @@
    SQUAD ROSTER
    ============================================================ */
 .sp-roster {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: 20px;
+  --cols: 5;
+  --rgap: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--rgap);
   counter-reset: player;
 }
 .sp-player {
+  flex: 0 0 auto;
+  width: calc((100% - (var(--cols) - 1) * var(--rgap)) / var(--cols));
   position: relative;
   background: var(--paper);
   border: 1px solid var(--line);
@@ -308,16 +313,17 @@
 @media (max-width: 900px) {
   .sp-about { grid-template-columns: 1fr; gap: 26px; }
   .sp-motif { opacity: 0.55; right: -18%; }
+  .sp-roster { --cols: 4; }
 }
 @media (max-width: 700px) {
   .sp-values { grid-template-columns: 1fr; max-width: 420px; margin-inline: auto; }
-  .sp-roster { grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .sp-roster { --cols: 3; --rgap: 14px; }
 }
 @media (max-width: 460px) {
   .sp-hero { min-height: auto; }
   .sp-hero-actions { width: 100%; }
   .sp-hero-actions .btn { width: 100%; }
-  .sp-roster { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .sp-roster { --cols: 2; --rgap: 12px; }
   .sp-player-body { padding: 11px 11px 13px; }
   .sp-player-body h3 { font-size: 0.85rem; }
 }
