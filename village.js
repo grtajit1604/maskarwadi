@@ -216,7 +216,7 @@ window.addEventListener('resize', () => {
 // ===== Header scroll effect + scroll progress + parallax =====
 const header = document.getElementById('header');
 const scrollProgress = document.getElementById('scrollProgress');
-const heroMedia = document.querySelector('.hero-bg video, .hero-bg img');
+const heroMedia = document.querySelector('.hero-bg img');
 let ticking = false;
 
 function onScroll() {
