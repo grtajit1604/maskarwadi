@@ -677,6 +677,52 @@ section { position: relative; padding-block: var(--section); }
 .location-map .map-pin .leaf { width: 12px; height: 12px; }
 
 /* ============================================================
+   9b. GALLERY — bento photo grid
+   ============================================================ */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 170px;
+  grid-auto-flow: dense;
+  gap: 16px;
+}
+.gallery-item {
+  position: relative;
+  margin: 0;
+  border-radius: var(--r-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--line);
+}
+.gallery-item img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  transition: transform var(--t-slow);
+}
+.gallery-item:hover img { transform: scale(1.06); }
+.gallery-item figcaption {
+  position: absolute; inset: auto 0 0 0;
+  padding: 30px 14px 12px;
+  background: linear-gradient(180deg, transparent, rgba(10,46,22,0.85));
+  color: #fff;
+  font-size: 0.82rem; font-weight: 600;
+  line-height: 1.35;
+  text-wrap: pretty;
+}
+.gallery-item--featured { grid-column: span 2; grid-row: span 2; }
+.gallery-item--wide { grid-column: span 2; }
+.gallery-item--tall { grid-row: span 2; }
+
+@media (max-width: 900px) {
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 200px; }
+  .gallery-item--featured,
+  .gallery-item--wide,
+  .gallery-item--tall { grid-column: span 1; grid-row: span 1; }
+}
+@media (max-width: 480px) {
+  .gallery-grid { grid-template-columns: 1fr; grid-auto-rows: 220px; }
+}
+
+/* ============================================================
    10. CTA
    ============================================================ */
 .cta-section {
@@ -852,10 +898,11 @@ section { position: relative; padding-block: var(--section); }
   }
   .nav-links a::after { display: none; }
   body.nav-open .nav-links a { opacity: 1; transform: none; transition: opacity var(--t), transform var(--t); }
-  body.nav-open .nav-links a:nth-child(1) { transition-delay: 0.10s; }
-  body.nav-open .nav-links a:nth-child(2) { transition-delay: 0.16s; }
-  body.nav-open .nav-links a:nth-child(3) { transition-delay: 0.22s; }
-  body.nav-open .nav-links a:nth-child(4) { transition-delay: 0.28s; }
+  body.nav-open .nav-links li:nth-child(1) a { transition-delay: 0.10s; }
+  body.nav-open .nav-links li:nth-child(2) a { transition-delay: 0.16s; }
+  body.nav-open .nav-links li:nth-child(3) a { transition-delay: 0.22s; }
+  body.nav-open .nav-links li:nth-child(4) a { transition-delay: 0.28s; }
+  body.nav-open .nav-links li:nth-child(5) a { transition-delay: 0.34s; }
   .nav-links::after {
     content: ''; position: absolute; left: 50%; bottom: 40px;
     width: 40px; height: 1px; background: rgba(255,255,255,0.25);
@@ -922,5 +969,6 @@ section { position: relative; padding-block: var(--section); }
   .reveal, .reveal-left, .reveal-right, .reveal-scale { opacity: 1 !important; transform: none !important; }
   .hero-bg img { transform: none !important; }
   .feature-card:hover, .about-media:hover .about-image-wrap img,
+  .gallery-item:hover img,
   .footer ul li a:hover, .btn:hover { transform: none; }
 }
